@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/*
+    이전, 다음 버튼
+    sp_btn.png
+    크기 37*74
+    좌표 :
+    background-position:-310px -300px;  //이전
+    background-position:-310px -376px;  //다음
+*/
+
+
+section {
+    width: 740px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/* 내비게이션영역 */
+section>.container {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 10px;
+}
+
+/* 화살표영역 */
+section>.container>a {
+    width: 37px;
+    height: 74px;
+    background-image: url(./../images/sp_btn.png);
+}
+
+section>.container>.leftArrow {
+    background-position: -310px -300px;
+}
+
+section>.container>.rightArrow {
+    background-position: -310px -376px;
+}
+
+/* 내비게이션 사진영역 */
+section>.container>ul {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+section>.container>ul>li>a {
+    display: block;
+    position: relative;
+    width: 74px;
+    height: 74px;
+}
+
+section>.container>ul>.on>a:after,
+section>.container>ul>li>a:hover:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 74px;
+    height: 74px;
+    border: 3px solid red;
+    box-sizing: border-box;
+    content: '';
+}
+
+
+/* 스크린영역 */
+
+section>.screen>img {
+    width: 100%;
+    background-size: cover;
+}

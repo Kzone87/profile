@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+
+    > .visual {
+        position: relative;
+        width: 100%;
+        height: 700px;
+
+        > .name {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            color: skyblue;
+            font-weight: 400;
+            font-size: 50px;
+            text-shadow: 2px 2px 5px #fff;
+        }
+
+        > .intro {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        > .visual-frame {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-size: cover;
+            transition: all 0.8s;
+            > a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        > .selector-container {
+            width: 200px;
+            height: calc(80px * 3);
+            position: absolute;
+            top: 50%;
+            right: 100px;
+            transform: translate(0, -50%);
+
+            > li > a {
+                display: block;
+                width: 200px;
+                height: 80px;
+                color: #fff;
+                font-size: 20px;
+                font-weight: 600;
+                background-size: cover;
+                border: 1px solid #000;
+
+                &.on,
+                &:hover {
+                    border: 3px solid #f00;
+                    box-sizing: border-box;
+                }
+            }
+            > li:nth-child(1) > a {
+                background-image: url(./../images/heonhwa.jpg);
+            }
+            > li:nth-child(2) > a {
+                background-image: url(./../images/beaksu.jpg);
+            }
+            > li:nth-child(3) > a {
+                background-image: url(./../images/sinchang.jpg);
+            }
+            > li:nth-child(4) > a {
+                background-image: url(./../images/chungju.jpg);
+            }
+        } //.selector-container
+
+        > .visual-play {
+            display: block;
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            width: 50px;
+            height: 50px;
+            text-indent: -9999px;
+            background-color: transparent;
+            background-image: url(./../images/play_btn.png);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+
+        > .visual-pause {
+            display: block;
+            position: absolute;
+            left: 120px;
+            bottom: 50px;
+            width: 50px;
+            height: 50px;
+            text-indent: -9999px;
+            background-color: transparent;
+            background-image: url(./../images/pause_btn.png);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+    } //.visual
+}

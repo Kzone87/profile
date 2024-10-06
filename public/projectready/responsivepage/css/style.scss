@@ -1,0 +1,434 @@
+@charset "utf-8";
+
+// CSS에서는 url()를통해서 임포트해야 하지만
+// SCSS에서는 생략가능하다.
+
+// @import url(./reset.css);
+@import "./reset.css";
+
+// 사스변수
+$pc: "screen and (max-width: 1200px)";
+$tablet: "screen and (max-width: 992px)";
+$mobile: "screen and (max-width: 640px)";
+
+// 문자열에서 따옴표를 제거함
+$titFont: unquote("명조");
+
+// 믹신-반복되는 코드에 유용
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 변수처럼 사용되는 믹신
+@mixin textDeco() {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+@mixin bgBasic() {
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+// 함수처럼 사용되는 믹신 - 매개변수에 기본값 설정
+@mixin flexLayout($direction: row, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+// 조각난 파일명을 언더바(_)로 저장후 @import 하면
+// 조각파일이 별도의 .css파일로 컴파일 되징 않고,
+// 하나의 style.css파일로 병합되어 컴파일 된다.
+// @import "_header.scss", "_footer.scss"; //.scss생략가능
+@import "_header", "_footer"; //.scss생략가능
+
+body {
+    > #wrap {
+        @include flexLayout(row, wrap);
+
+        width: 1200px;
+        margin: 0 auto;
+
+        @media #{$tablet} {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+body#main {
+    > #wrap {
+        > section.slider {
+            order: 200;
+            width: 600px;
+            height: 460px;
+            text-indent: -9999px;
+            background-image: url("./../images/slider_01.jpg");
+            @include bgBasic();
+
+            @media #{$tablet} {
+                width: 60%;
+                height: 400px;
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+                height: 350px;
+            }
+        } //section.slider
+
+        > section.gallery {
+            order: 300;
+            width: 300px;
+            height: calc(460px - 90px);
+            padding: 45px 0;
+            color: #fff;
+            text-align: center;
+            @include textDeco();
+            background-color: #ce1414;
+
+            @media #{$tablet} {
+                @include flexLayout(row, nowrap);
+                width: 70%;
+                height: 270px;
+                padding: 0;
+            }
+
+            @media #{$mobile} {
+                display: block;
+                display: initial;
+                width: 100%;
+                height: initial;
+                padding-bottom: 30px;
+            }
+
+            > figure {
+                height: 185px;
+
+                @media #{$tablet} {
+                    width: 50%;
+                }
+
+                @media #{$mobile} {
+                    width: 100%;
+                }
+
+                &:last-child {
+                    margin-top: 30px;
+
+                    @media #{$tablet} {
+                        margin-top: 0;
+                    }
+                }
+
+                > span.frame {
+                    display: block;
+                    width: 200px;
+                    margin: 0 auto 20px;
+
+                    @media #{$tablet} {
+                        margin-top: 50px;
+                    }
+
+                    @media #{$mobile} {
+                        width: 50%;
+                    }
+
+                    > img {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
+        } //section.gallery
+
+        > section.rankup {
+            order: 400;
+            width: 300px;
+            background-color: #1795d8;
+
+            @media #{$tablet} {
+                order: 250;
+                width: 40%;
+                height: 400px;
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+                height: 460px;
+            }
+
+            > h2 {
+                margin-top: 60px;
+                color: #fff;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            > ul {
+                width: 100px;
+                margin: 20px auto;
+
+                @media #{$tablet} {
+                    width: 90%;
+                    height: 60%;
+                    @include flexLayout(row, wrap);
+                    justify-content: space-between;
+                }
+
+                > li {
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 16px;
+                    list-style: decimal;
+
+                    @media #{$tablet} {
+                        width: 40%;
+                        padding: 0 5%;
+                        list-style: none;
+                    }
+
+                    @media #{$mobile} {
+                        margin-bottom: 10px;
+                    }
+
+                    > a {
+                        color: inherit;
+                        line-height: 30px;
+
+                        @media #{$tablet} {
+                            display: block;
+                            padding: 5%;
+                            text-align: center;
+                            border: 1px solid #fff;
+                            border-radius: 0.5em;
+                        }
+                    }
+                } //li
+            } //ul
+        } //section.rankup
+
+        > section.latest {
+            order: 500;
+            width: 350px;
+            height: 270px;
+            color: #fff;
+            font-weight: 600;
+            background-color: orange;
+
+            @media #{$tablet} {
+                order: 260;
+                width: 40%;
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+            }
+
+            > h2 {
+                height: 70px;
+                line-height: 70px;
+                text-align: center;
+            }
+
+            > ul {
+                width: 70%;
+                margin: 0 auto;
+
+                > li {
+                    list-style: circle;
+
+                    > a {
+                        display: block;
+                        color: #fff;
+                        @include textDeco();
+                        line-height: 30px;
+
+                        // 말줄임처리 3종세트
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                } //li
+            } //ul
+        } //section.latest
+
+        > section.popular {
+            order: 600;
+            width: 350px;
+            height: 270px;
+            color: #fff;
+            font-weight: 600;
+            background-color: purple;
+
+            @media #{$tablet} {
+                order: 270;
+                width: 40%;
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+            }
+
+            > h2 {
+                height: 70px;
+                line-height: 70px;
+                text-align: center;
+            }
+
+            > ul {
+                width: 70%;
+                margin: 0 auto;
+                // border: 1px solid #000;
+                > li {
+                    list-style: circle;
+                    > a {
+                        display: block;
+                        color: #fff;
+                        line-height: 30px;
+
+                        @include textDeco();
+
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        } //section.popular
+
+        > section.banner {
+            order: 700;
+            width: 300px;
+            height: 270px;
+
+            @media #{$tablet} {
+                width: 30%;
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+            }
+
+            > article {
+                height: 135px;
+                text-indent: -9999px;
+                @include bgBasic();
+            }
+
+            > article.banner01 {
+                background-image: url(./../images/w3c_logo.png);
+                background-color: brown;
+            } //.banner01
+
+            > article.banner02 {
+                position: relative;
+                background-color: #6b3838;
+                > ul {
+                    @include flexLayout(row, nowrap);
+                    justify-content: space-between;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    width: 150px;
+                    margin: -30px 0 0 -75px;
+
+                    @media #{$mobile} {
+                        justify-content: space-around;
+                        width: 70%;
+                        margin-left: -35%;
+                    }
+
+                    > li {
+                        width: 43px;
+                        // border: 1px solid #fff;
+
+                        &:nth-child(1) {
+                            background-image: url(./../images/html_logo.png);
+                        }
+                        &:nth-child(2) {
+                            background-image: url(./../images/css_logo.png);
+                        }
+                        &:nth-child(3) {
+                            background-image: url(./../images/js_logo.png);
+                        }
+                        > a {
+                            display: block;
+                            height: 60px;
+                            text-indent: -9999px;
+                        }
+                    }
+                }
+            } //.banner02
+        } //section.banner
+
+        > section.social {
+            order: 800;
+            position: relative;
+            width: 200px;
+            height: 270px;
+            background-color: bisque;
+
+            @media #{$tablet} {
+                width: 20%;
+                order: 280;
+            }
+
+            @media #{$mobile} {
+                order: 800;
+                width: 100%;
+                height: 100px;
+                background-color: #fff;
+            }
+
+            > ul {
+                @include flexLayout(column, nowrap);
+                @include flexLayout(column); //뒤쪽인자 생략시 기본값으로 할당됨
+                justify-content: space-between;
+
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                height: 200px;
+                margin: -100px 0 0 -22px;
+
+                @media #{$mobile} {
+                    flex-flow: row nowrap;
+                    justify-content: space-around;
+                    position: initial;
+                    height: 100px;
+                    margin: 0;
+                }
+
+                > li {
+                    width: 55px;
+                    @include bgBasic();
+                    // border: 1px solid #000;
+
+                    &:nth-child(1) {
+                        background-image: url(./../images/social_icon_01.png);
+                    }
+                    &:nth-child(2) {
+                        background-image: url(./../images/social_icon_02.png);
+                    }
+                    &:nth-child(3) {
+                        background-image: url(./../images/social_icon_03.png);
+                    }
+
+                    > a {
+                        display: block;
+                        height: 55px;
+                        text-indent: -9999px;
+
+                        @media #{$mobile} {
+                            height: 100%;
+                        }
+                    }
+                }
+            } //ul
+        } //section.social
+    } //#wrap
+} //body#main

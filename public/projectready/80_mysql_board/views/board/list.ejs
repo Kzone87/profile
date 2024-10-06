@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <h1>/board/list.ejs</h1>
+
+  <p><a href="/board/write">글쓰기</a></p>
+  <table>
+    <caption>게시글목록</caption>
+
+    <thead>
+      <th scope="col">번호</th>
+      <th scope="col">글제목</th>
+      <th scope="col">작성자</th>
+      <th scope="col">등록일</th>
+      <th scope="col">조회수</th>
+    </thead>
+
+    <tbody>
+    <% if(list.length>0) { %>
+        <% for(let i=0;i<list.length;i++){ %>
+            <tr>
+              <td><%= list[i].num%></td>
+              <td><a href="/board/content/<%=list[i].num%>"><%= list[i].title%></a></td>
+              <td><%= list[i].name%></td>
+              <td><%= list[i].regdate%></td>
+              <td><%= list[i].count%></td>
+            </tr>
+        <% } %>
+    <% } else { %>
+      <tr>
+        <td colspan="5">작성된 게시글이 없습니다.</td>
+      </tr>
+    <% } %>
+
+
+    </tbody>
+
+    <tfoot></tfoot>
+
+
+  </table>
+
+
+</body>
+
+</html>

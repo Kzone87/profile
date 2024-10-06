@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+#wrap {
+    width: 935px;
+    margin: 0 auto;
+    > section {
+        > h2 {
+            position: absolute;
+            text-indent: -9999px;
+        }
+        > .photogallery {
+            display: flex;
+            flex-flow: row nowrap;
+            width: 935px;
+            height: 325px;
+            > a {
+                > .mainframe {
+                    display: block;
+                    overflow: hidden;
+                    width: 647px;
+                    height: 325px;
+                    text-indent: -9999px;
+                    background-image: url(./../images/big1.jpg);
+                    border: 1px solid #ddd;
+                    border-right: none;
+                    box-sizing: border-box;
+
+                    transition: all 0.5s;
+                }
+            } //end of a
+
+            > .menucontainer {
+                display: flex;
+                flex-flow: column nowrap;
+                > .thumbcontainer {
+                    width: 285px;
+                    height: 285px;
+                    > ul {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: center;
+                        > li {
+                            > .thumbs {
+                                display: block;
+                                width: 95px;
+                                height: 95px;
+                                text-indent: -9999px;
+                                border: 1px solid #ddd;
+                                box-sizing: border-box;
+                            }
+                            &.on > .thumbs,
+                            &:hover > .thumbs {
+                                background-position: 0 -95px;
+                                border: none;
+                            }
+
+                            &:nth-child(1) > .thumbs {
+                                background-image: url(./../images/th1.png);
+                            }
+                            &:nth-child(2) > .thumbs {
+                                background-image: url(./../images/th2.png);
+                            }
+                            &:nth-child(3) > .thumbs {
+                                background-image: url(./../images/th3.png);
+                            }
+                            &:nth-child(4) > .thumbs {
+                                background-image: url(./../images/th4.png);
+                            }
+                            &:nth-child(5) > .thumbs {
+                                background-image: url(./../images/th5.png);
+                            }
+                            &:nth-child(6) > .thumbs {
+                                background-image: url(./../images/th6.png);
+                            }
+                            &:nth-child(7) > .thumbs {
+                                background-image: url(./../images/th7.png);
+                            }
+                            &:nth-child(8) > .thumbs {
+                                background-image: url(./../images/th8.png);
+                            }
+                            &:nth-child(9) > .thumbs {
+                                background-image: url(./../images/th9.png);
+                            }
+                        } //end of li
+                    } //end of ul
+                } //end of .thumbcontainer
+
+                > .arrcontainer {
+                    display: flex;
+                    justify-content: center;
+                    width: 285px;
+                    height: 40px;
+                    padding-top: 11px;
+                    border: 1px solid #ddd;
+                    border-top: none;
+                    box-sizing: border-box;
+                    
+                    > .prev {
+                        padding: 0 10px;
+                        > .left {
+                            display: block;
+                            width: 0;
+                            height: 0;
+                            text-indent: -9999px;
+                            border-width: 10px;
+                            border-style: solid;
+                            border-color: transparent #ddd transparent transparent;
+                        }
+                        &:hover > .left {
+                            border-color: transparent #f00 transparent transparent;
+                        }
+                    }
+                    
+                    > .next {
+                        padding: 0 10px;
+                        > .right {
+                            width: 0;
+                            height: 0;
+                            text-indent: -9999px;
+                            border-width: 10px;
+                            border-style: solid;
+                            border-color: transparent transparent transparent #ddd;
+                        }
+                        &:hover > .right {
+                            border-color: transparent transparent transparent #f00;
+                        }
+                    }
+                } //end of .arrcontainer
+            } //end of .container
+        } //end of .photogallery
+    } //end of section
+} //end of #wrap

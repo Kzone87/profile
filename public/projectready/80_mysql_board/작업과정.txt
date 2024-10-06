@@ -1,0 +1,58 @@
+노드 프로젝트 생성
+
+필요한 모듈 설치
+  npm i express ejs dotenv mysql2 bcrypt
+
+index.js 
+  express 기본코드 작성
+  ejs 설정
+    views 폴더 생성
+    index.ejs 생성
+
+  정적파일설정
+    public>css+images 폴더 생성
+
+  boardRouter 모듈을 불러와서 미들웨어로 등록
+
+  잘못된 요청에 대한 처리를 담당하는 미들웨어 등록
+    404에러처리 html문서 작성
+
+게시판관련 라우팅모듈 설정
+  routes>boardRouter.js 생성후 router 객체 exports 등록
+    '/board/list' 경로에 대한 라우팅
+    커넥션객체 상태확인
+    dbcon.query() 메서드를 실행하여 DB에서 데이터를 추출하여 list.ejs로 전달
+
+
+
+데이터베이스 - nodejs
+  first_board 테이블 스키마 디자인
+    글제목, 작성자명, 글내용, 글비번
+    조회수, 등록일, 식별자(주키-Primary Key)
+
+    create table first_board (
+      num int primary key auto_increment    comment '레코드식별자',
+      title varchar(255) not null         comment '글제목',
+      content text                  comment '글내용',
+      name varchar(50) not null         comment '작성자명',
+      pwd varchar(255) not null         comment '글비번',
+      regdate datetime default now()      comment '등록일',
+      count int default 0               comment '조회수'
+    ) default character set utf8; 
+
+    두줄의 목업데이터 삽입(둘리, 하니)
+
+
+
+    nodejs에서 mysql에 접속 설정
+      루트경로에 .env 생성후 DB정보 설정
+        DATABASE_HOST
+        DATABASE_PORT
+        DATABASE_USER
+        DATABASE_PASSWORD
+        DATABASE_NAME
+
+        index.js에서 env 환경변수 설정 (코드위치를 가장 위쪽에 권장,특히 라우팅전)
+
+    database>mysql.js 에서 DB접속후 커넥션 객체 모듈화
+  

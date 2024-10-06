@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판</title>
+</head>
+
+<body>
+
+  <h1>/pwd/<%=mode%>/<%=num%></h1>
+
+  <form action="/board/pwd" method="post">
+    <input type="hidden" name="mode" value="<%=mode%>">
+    <input type="hidden" name="num" value="<%=num%>">
+    <fieldset>
+      <legend>비밀번호입력</legend>
+      <ul>
+        <li>
+          <label for="pwd">비밀번호:</label>
+          <input type="password" name="pwd" id="pwd" autofocus>
+        </li>
+      </ul>
+    </fieldset>
+    <p>
+      <button>전송</button>
+      <a href="/board/content/<%=num%>">취소</a>
+    </p>
+  </form>
+
+  <script>
+    window.addEventListener('load', function() {
+      const params = {};
+      const qs = location.search.slice(1);
+
+      const urlParams = new URLSearchParams(qs);
+      urlParams.forEach((value, key) => {
+        params[key] = value;
+      });
+
+
+      console.log('params =', params);
+
+      if (params.error === 'incorrect-password') {
+        alert('입력한 비밀번호가 잘못되었습니다.');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>슈팅몬스터</title>
+
+    <style>
+        .container {
+            display: block;
+            position: relative;
+            width: 770px;
+            height: 800px;
+            margin: 50px auto;
+            border: 1px solid #000;
+        }
+
+        .container>p {
+            position: absolute;
+            left: 0;
+            top: -15px;
+        }
+
+        .container>.stagearea {
+            width: 730px;
+            height: 0;
+            padding: 20px;
+            /* border: 1px solid #000; */
+        }
+
+        .container>.stagearea>.targets {
+            display: inline-block;
+            width: 70px;
+            height: 15px;
+            background-color: #5de;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        .container>.shooter {
+            display: block;
+            width: 150px;
+            height: 30px;
+            background-color: #333;
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .missile {
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent blue transparent;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <p>score</p>
+        <div class="stagearea">
+            <!-- <div class="targets"></div> -->
+        </div>
+        <div class="shooter"></div>
+    </div>
+
+
+    <script>
+
+        const $container = document.querySelector('.container');
+        const $shooter = document.querySelector('.shooter');
+        const $targets = document.querySelectorAll('.targets');
+        const $target = document.querySelector('.targets');
+        let score = 0;
+
+        $shooter.style.position = 'absolute';
+        $shooter.style.left = '300px';
+        $shooter.style.top = '760px';
+
+        //슈터를 좌우화살표로 움직이는 함수
+        const moveShooter = function (event) {
+
+            let left = parseInt($shooter.style.left);
+            if (event.key === 'ArrowLeft') {
+                $shooter.style.left = (left - 10) + "px";
+            }
+
+            if (event.key === 'ArrowRight') {
+                $shooter.style.left = (left + 10) + "px";
+            }
+            if (left < 10) {
+                $shooter.style.left = 10 + "px";
+            }
+            if (left > 610) {
+                $shooter.style.left = 610 + "px";
+            }
+        };
+
+        // 미사일(슛)을 생성하는 함수
+        const creatMissile = (event) => {
+            const shooterLeft = parseInt($shooter.style.left);
+            let top = parseInt($shooter.style.top);
+            let start;
+
+            if (event.key === ' ') {
+                const missile = document.createElement('div');
+                missile.setAttribute("class", "missile");
+                $container.appendChild(missile);
+                missile.style.position = 'absolute';
+                missile.style.left = (shooterLeft + 65) + 'px';
+
+                const move = (time) => {
+                    // requestAnimationFrame은 같은 명령이 지속되는듯하다
+                    // 따라서 단순히 start = time;로 시작시간을 저장하면
+                    // time - start는 무한히 0으로 나타나게되는 현상발생
+                    // 외부에서 start를 비어있는 변수로 선언하면
+                    // start변수에 언디파인드가 할당
+                    // if제어문을 통해 이벤트가 발생한 최초 시점의 time을
+                    // start가 언디파인드인 조건에만 저장함으로써
+                    // 시작시점의 strat와 계속해서 커지는 time을 구분할수 있음!
+                    // 결과는 매 이벤트 발생하는 각각의 요소의 stamp를 구별하여 저장할수 있게된다~
+                    if (start === undefined) {
+                        start = time;
+                    }
+
+                    let stamp = Math.min(time - start, 1500);
+
+                    missile.style.top = 750 - stamp * 0.5 + 'px';
+
+                    requestAnimationFrame(move);
+                };
+                move();
+            }
+        };
+
+
+        window.addEventListener('keydown', moveShooter);
+        window.addEventListener('keydown', creatMissile);
+
+    </script>
+
+</body>
+
+</html>

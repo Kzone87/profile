@@ -1,0 +1,16 @@
+body#main {
+    > #wrap {
+        > footer {
+            order: 900;
+            width: 100%;
+            background-color: #444;
+
+            > address {
+                @include flexCenter();
+                height: 100px;
+                color: #fff;
+                @include textDeco();
+            }
+        } //footer
+    } //#wrap
+} //body#main

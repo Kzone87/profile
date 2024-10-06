@@ -1,0 +1,499 @@
+@charset "utf-8";
+
+// 주조색,보조색,강조색
+$priColor: #333;
+$secColor: #d9d9d9;
+$pointColor: #a799ff;
+
+$mobile: "screen and (max-width:768px)";
+
+// 믹신변수
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin ellipse() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin controlReset() {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+body {
+    color: $priColor;
+}
+
+#login {
+    @include flexCenter();
+    width: 90vw; //브라우저 가로폭의 90% viewport width?
+    max-width: 393px;
+    height: 99vh; // 브라우저 세로폭의 99% viewport height?
+    margin: 0 auto;
+    text-align: center;
+    // border: 1px solid #000;
+    display: none;
+
+    > form {
+        > label {
+            display: block;
+            padding-bottom: 5vh;
+            font-weight: 600;
+            font-size: 24px;
+            box-sizing: border-box;
+        } //label
+        > input {
+            @include controlReset();
+
+            display: block;
+            width: 60%;
+            margin: 0 auto 100px;
+            color: $pointColor;
+            font-size: 22px;
+            font-weight: 800;
+            text-align: center;
+            border-bottom: 2px solid $secColor;
+        } //input
+
+        > button {
+            @include controlReset();
+
+            width: 60%;
+            padding: 10px 0;
+            color: #fff;
+            font-weight: 800;
+            background-color: $pointColor;
+            border-radius: 20px;
+        } //button
+    } //form
+} //#login
+
+#content {
+    display: none;
+    width: 1360px;
+    margin: 0 auto;
+    // background-color: yellow; //임시값
+
+    @media #{$mobile} {
+        width: 100%;
+        // background-color: gold; //임시값
+    }
+
+    > header {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        padding: 24px 0;
+        font-size: 20px;
+
+        @media #{$mobile} {
+            display: block;
+        }
+
+        > .datetime {
+            width: 32%;
+            // border: 1px solid #000;
+
+            @media #{$mobile} {
+                width: 100%;
+                text-align: center;
+            }
+
+            > .date {
+                font-weight: 600;
+            }
+        } //.datetime
+
+        > .quote {
+            display: flex;
+            width: 60%;
+            // border: 1px solid #000;
+
+            @media #{$mobile} {
+                display: block;
+                width: 40%;
+                margin: 24px auto;
+                line-height: 1.6;
+                text-align: center;
+                // border: 1px solid #000;
+            }
+
+            > .msg {
+                @include ellipse();
+                max-width: 80%;
+                font-size: 20px;
+                @media #{$mobile} {
+                    white-space: wrap;
+                }
+                // border: 1px solid #f00;
+            } //.msg
+
+            > .author {
+                @include flexCenter();
+                margin-left: 20px;
+                font-size: 12px;
+                // border: 1px solid #00f;
+
+                @media #{$mobile} {
+                    display: block;
+                    margin: 16px 0;
+                }
+
+                &:before {
+                    content: "- ";
+                }
+                &:after {
+                    content: " -";
+                }
+            } //.author
+        } //.quote
+
+        > .btns {
+            display: flex;
+            justify-content: space-between;
+            width: 48px;
+            // border: 1px solid #000;
+
+            @media #{$mobile} {
+                position: absolute;
+                right: 0;
+                top: 28px;
+            }
+
+            > i {
+                @include flexCenter();
+                // border: 1px solid #f00;
+
+                &:hover {
+                    color: $pointColor;
+                    cursor: pointer; //중요
+                }
+            }
+        } //.btns
+    } //header
+
+    > main {
+        display: flex;
+        justify-content: space-between;
+        // height: 500px; //임시값
+
+        @media #{$mobile} {
+            display: block;
+            height: auto;
+        }
+
+        > div.container,
+        section {
+            width: 32%;
+            min-width: 380px;
+            padding: 24px 0;
+            border: 2px solid $pointColor;
+            border-radius: 10px;
+
+            @media #{$mobile} {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        } //section
+
+        > div.container {
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 0;
+            border: none;
+            // outline: 1px solid #f00;
+
+            > section {
+                width: 100%;
+            }
+
+            > p {
+                margin: 16px 0;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 1.5;
+                text-align: center;
+                @media #{$mobile} {
+                    margin-top: 0;
+                }
+            } //p
+
+            > .weather {
+                flex: 1 1 auto;
+                text-align: center;
+                > h2 {
+                    > .city {
+                        color: $pointColor;
+                    }
+                } //h2
+                > article.current {
+                    > img {
+                        width: 122px;
+                    }
+                    > h3 {
+                        font-size: 1.2rem;
+                    }
+                } //article.current
+
+                > article.forecast {
+                    margin-top: 48px;
+                    > div {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 55%;
+                        margin: 0 auto;
+
+                        > p {
+                            display: flex;
+                            align-items: center;
+
+                            > .frame {
+                                display: block;
+                                width: 72px;
+                                height: 72px;
+                                > img {
+                                    display: block;
+                                    width: 100%;
+                                }
+                            } //.frame
+
+                            > span {
+                                line-height: 1.5;
+                                text-align: left;
+                            }
+                        }
+                    }
+                } //.forecast
+            } //.weather
+        } //div.container
+
+        > .dday {
+            position: relative;
+            @media #{$mobile} {
+                margin: 10px 0;
+            }
+
+            > .tit {
+                display: flex;
+                align-items: center;
+                width: 90%;
+                margin: 0 auto;
+                padding-bottom: 10px;
+                border-bottom: 2px solid $secColor;
+
+                > h2 {
+                    flex: 1 1 0;
+                    text-align: center;
+                    // border: 1px solid #000;
+
+                    > span {
+                        color: #ccc;
+                        font-size: 0.5em;
+                        cursor: pointer;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                > i.add {
+                    align-self: flex-end;
+                    color: $pointColor;
+                    font-size: 24px;
+                    cursor: pointer;
+
+                    &:hover {
+                        // color: daken(어떤색,얼마만큼);
+                        color: darken($color: $pointColor, $amount: 10%);
+                    }
+                }
+            } // .tit
+
+            > .inputbox {
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 69px;
+                width: 90%;
+                height: 50px;
+                background-color: #fff;
+                border: 3px solid #ccc;
+                box-sizing: border-box;
+                transform: translate(-50%, 0);
+
+                &.show {
+                    display: block;
+                }
+
+                > form {
+                    display: none;
+                    padding: 10px 0;
+
+                    &.on {
+                        display: flex;
+                    }
+
+                    > label {
+                        padding: 0 10px;
+                    }
+
+                    > input[type="text"] {
+                        flex: 1 1 0;
+                        outline: none;
+                    }
+
+                    > input[type="date"] {
+                        margin: 0 auto;
+                    }
+
+                    > .insert {
+                        @include controlReset();
+                        // text-indent: -9999px;
+                        font-size: 20px;
+                        padding-right: 10px;
+                    }
+                } //form
+            } // .inputbox
+
+            > .list {
+                overflow: auto;
+                width: 90%;
+                height: 470px;
+                margin: 20px auto 0;
+                // border: 1px solid #f00;
+
+                @media #{$mobile} {
+                    height: auto;
+                }
+
+                > li {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 24px;
+                    // border: 1px solid #000;
+
+                    &.complete {
+                        text-decoration: line-through $pointColor;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    > i {
+                        color: $pointColor;
+                        font-size: 18px;
+
+                        &:hover {
+                            color: darken($pointColor, 10%);
+                        }
+                    }
+
+                    > h3 {
+                        padding: 0 10px;
+                        color: $pointColor;
+                        font-size: 20px;
+                    }
+
+                    > p {
+                        flex: 1 1 0;
+                        font-size: 20px;
+                    }
+                }
+            } //.list
+        } //.dday
+
+        > .todo {
+            padding-top: 0;
+
+            > .inputBox {
+                position: relative;
+                width: 90%;
+                height: 48px;
+                margin: 0 auto;
+                // outline: 1px solid #f00;
+
+                > form {
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    padding: 10px 0;
+
+                    &.on {
+                        display: flex;
+                    }
+
+                    > input {
+                        @include controlReset();
+
+                        flex: 1 1 0;
+                        padding: 12px;
+                        font-size: 16px;
+                        text-align: center;
+                        border-bottom: 2px solid $secColor;
+                    }
+                } //form
+            }
+
+            > .list {
+                overflow: auto;
+                width: 90%;
+                height: 500px;
+                margin: 24px auto 0;
+
+                @media #{$mobile} {
+                    height: auto;
+                }
+
+                > li {
+                    display: flex;
+                    margin-bottom: 24px;
+                    align-items: center;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    > i {
+                        color: $pointColor;
+                        font-size: 18px;
+
+                        &.del {
+                            margin-left: 10px;
+                        }
+
+                        &:hover {
+                            color: darken($pointColor, 10%);
+                            cursor: pointer;
+                        }
+                    } //i
+
+                    > h3 {
+                        flex: 1 1 0;
+                        padding: 0 10px;
+                        font-weight: 500;
+                        font-size: 20px;
+
+                        &.complete {
+                            text-decoration: line-through $pointColor;
+                        }
+                    } //h3
+                } //li
+            } //.list
+        } //.todo
+    } //main
+
+    > footer {
+        @include flexCenter();
+        height: 48px;
+    } //footer
+} //#content

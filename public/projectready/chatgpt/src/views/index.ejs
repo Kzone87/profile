@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chat GPT</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://kit.fontawesome.com/9ad59cd5cc.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div id="wrap">
+    <header>
+      <h1 class="text-center">무엇이든 물어보세요~!</h1>
+    </header>
+
+    <section class="chat">
+      <div class="dialogContainer">
+
+        <div class="dialog friend">
+          <ul>
+            <li class="response">
+              <span>안녕!</span>
+            </li>
+          </ul>
+        </div>
+        <div class="dialog expert">
+          <ul>
+            <li class="response">
+              <span>안녕하세요 무엇을 도와드릴까요?</span>
+            </li>
+          </ul>
+        </div>
+        <div class="dialog translator">
+          <ul>
+            <li class="response">
+              <span>번역하고 싶은 말은 입력해보세요~!</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <form name="frmMsg" class="expert">
+        <fieldset>
+          <label class="sr-only" for="msg">메세지</label>
+          <input type="text" name="msg" id="msg" placeholder="메세지를 입력하세요" autocomplete="off" autofocus required />
+          <button class="send"><span>전송</span><i class="fa-solid fa-paper-plane"></i></button>
+        </fieldset>
+      </form>
+
+      <div class="charContainer">
+        <p id="friend">일상챗</p>
+        <p id="expert" class="on">전문가</p>
+        <p id="translator">번역기</p>
+      </div>
+
+      <p class="buttons">
+        <button type="button" onclick="location.reload()">새로고침</button>
+        <!-- <button type="button">대화내용 저장</button> -->
+      </p>
+
+    </section>
+
+    <footer>
+      <address>&copy; develop by Kimjh</address>
+    </footer>
+
+  </div>
+
+  <script src="/js/GPTdata.js"></script>
+  <script src="/js/function.js"></script>
+
+</body>
+
+</html>

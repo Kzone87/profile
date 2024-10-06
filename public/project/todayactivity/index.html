@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘 뭐하지?</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./js/menuControls.js"></script>
+  <script defer src="./js/locations.js"></script>
+  <script defer src="./js/cityweather.js"></script>
+  <script defer src="./js/myList.js"></script>
+  <script defer src="./js/community.js"></script>
+</head>
+
+<body>
+
+  <div id="wrap">
+
+    <header>
+      <h1>오늘뭐하지?</h1>
+      <nav>
+        <ul class="gnb">
+          <li class="whereMenu">어디갈까?</li>
+          <li class="listMenu">my list</li>
+          <li class="scoreMenu">여긴어땠어?</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="whereToGo">
+        <h2 class="sr-only">어디갈까?</h2>
+
+        <div class="weatherContainer">
+          <p class="mapFrame">
+            <img src="./images/map.png" alt="weatherMap">
+          </p>
+
+          <ul class="cities">
+            <li class="Seoul">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="GyeongGi">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="GangWon">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="ChungNam">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="ChungBuk">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="JeonNam">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="JeonBuk">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="GyeongNam">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="GyeongBuk">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+            <li class="Jeju">
+              <span class="name"></span>
+              <img class="icon" src="#" alt="#">
+              <span class="temp"></span>
+              <span class="feels"></span>
+              <span class="wind"></span>
+            </li>
+          </ul>
+
+          <p class="tide">
+            <!-- <span class="high"></span>
+        <span class="row"></span> -->
+          </p>
+        </div>
+
+        <div class="recommendContainer">
+          <p class="recommend">오늘 이런곳으로 떠나보는건 어떠신가요?</p>
+          <p class="recommend">기온이 가장 높은 지역은?<span class="maxTempCity"></span></p>
+          <p class="recommend">기온이 가장 낮은 지역은?<span class="minTempCity"></span></p>
+          <p class="recommend">오늘 만조는 시각은 <span class="tideHighTime"></span>이에요~!</p>
+          <p class="recommend">만조 시작 <span class="tideHighstart"></span>시 바다구경 어떤가요?</p>
+          <p class="recommend">체감 온도가 가장 높은지역은?<span class="maxFeelCity"></span></p>
+          <p class="recommend">체감 온도가 가장 낮은지역은?<span class="minFeelCity"></span></p>
+          <p class="recommend">지금 바람이 가장 많이부는 지역은?<span class="maxWindCity"></span></p>
+        </div>
+
+      </section>
+
+      <section class="myList">
+
+        <h2 class="sr-only">my list</h2>
+
+        <div class="listContainer">
+
+          <p class="addList">현재위치를 추가해보세요~!</p>
+          <form class="inputListForm">
+            <label for="inputList">현재위치</label>
+            <input type="text" name="inputList" id="inputList" autocomplete="off" maxlength="10">
+            <button class="inputList">확인</button>
+            <button type="button" class="inputCancel">취소</button>
+          </form>
+
+          <p class="resetList">목록을 초기화하시겠습니까?</p>
+          <!-- <p class="myList">헌화로</p>
+          <p class="myList">충주호전망대</p>
+          <p class="myList">동해고속도로</p>
+          <p class="myList">삽교호</p>
+          <p class="myList">대부도</p>
+          <p class="myList">대청호화남대교</p> -->
+        </div>
+
+        <div class="infoContainer">
+          <p class="listInfo">내 리스트를 선택해주세요~!</p>
+
+
+          <p class="editList infoMenu">수정하기</p>
+          <p class="deleteList infoMenu">삭제하기</p>
+          <form class="editListForm">
+            <label for="editListInput">이름</label>
+            <input type="text" name="editListInput" id="editListInput" autocomplete="off" maxlength="10">
+            <button class="editListBtn">확인</button>
+            <button type="button" class="editCancelBtn">취소</button>
+          </form>
+
+          <!-- <p class="streetView infoMenu">거리뷰 보러가기</p>
+          <p class="mapView infoMenu">지도보기</p> -->
+
+
+          <p class="listCurWeather">지금 날씨는 어떨까요?</p>
+          <p class="listCurRain">강수량을 얼마나 될까요?</p>
+          <p class="duration">지금 출발하면 얼마나 걸릴까요?</p>
+          <p class="arrivalTime">지금 출발하면 언제쯤 도착할까요?</p>
+          <p class="prevWeather">도착하면 어떤 날씨일까요?</p>
+          <p class="nextWeather">도착하면 어떤 날씨일까요?</p>
+        </div>
+
+      </section>
+
+      <section class="community">
+        <h2 class="sr-only">community</h2>
+
+        <div class="listContainer">
+
+          <form class="searchForm" name="searchForm">
+            <label for="searchInput">주소찾기</label>
+            <input type="text" name="searchInput" id="searchInput" placeholder="추가하고 싶은 지역을 검색해보세요~!"
+              autocomplete="off">
+            <button class="searchBtn">확인</button>
+          </form>
+
+          <!-- <p class="selector">천안시</p>
+          <p class="selector">천안시</p> -->
+          
+        </div>
+
+        <div class="ratingContainer">
+          <p class="ratingName">방문지</p>
+          <span>도로상태</span>
+          <p class="roadCondition">
+            <span class="score"></span>
+            <!-- <a href="">1</a><a href="">2</a> -->
+          </p>
+          <span>복잡함</span>
+          <p class="complexity"><span class="score"></span></p>
+          <span>접근성</span>
+          <p class="accessibility"><span class="score"></span></p>
+          <span>편안함</span>
+          <p class="comfortness"><span class="score"></span></p>
+
+          <button type="button">점수저장</button>
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer>
+      <address>&copy;Designed By Kimjh</address>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,509 @@
+@keyframes changeBgColor {
+  0% {
+    background-color: #ddd;
+  }
+  100% {
+    background-color: #333;
+  }
+}
+@keyframes arrivalBgChange {
+  0% {
+    font-size: 14px;
+    background-color: #66bb6a;
+  }
+  100% {
+    font-size: 18px;
+    background-color: #eee;
+  }
+}
+body {
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+#wrap {
+  overflow: hidden;
+  width: 1200px;
+  margin: 0 auto;
+  color: #464646;
+  font-family: "open sans", "Montserrat";
+  background-color: #66bb6a;
+  border-radius: 20px;
+}
+#wrap > header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fafafa;
+}
+#wrap > header > h1 {
+  width: 10%;
+  padding: 20px;
+  font-weight: 800;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+#wrap > header > nav {
+  width: 50%;
+  margin-right: 50px;
+}
+#wrap > header > nav > .gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+#wrap > header > nav > .gnb > li {
+  font-size: 20px;
+  cursor: pointer;
+}
+#wrap > main {
+  display: flex;
+  width: 300%;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+}
+#wrap > main > section.whereToGo {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+#wrap > main > section.whereToGo > .weatherContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 500px;
+  height: 640px;
+  padding: 20px 0;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .mapFrame {
+  display: block;
+  margin: 0 auto;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .mapFrame > img {
+  width: 100%;
+  border-radius: 10px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100px;
+  background-color: rgb(255, 255, 153);
+  border-radius: 10px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li > .name {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li > .icon {
+  display: block;
+  width: 60px;
+  height: 40px;
+  margin: 0 auto;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li > .temp {
+  display: block;
+  margin-top: -15px;
+  font-size: 14px;
+  text-align: center;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li > .feels {
+  display: block;
+  color: #f55;
+  font-size: 12px;
+  text-align: center;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li > .wind {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.Seoul {
+  left: 100px;
+  top: 90px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.GyeongGi {
+  left: 200px;
+  top: 80px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.GangWon {
+  left: 350px;
+  top: 50px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.ChungNam {
+  left: 120px;
+  top: 200px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.ChungBuk {
+  left: 220px;
+  top: 190px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.JeonNam {
+  left: 120px;
+  top: 410px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.JeonBuk {
+  left: 145px;
+  top: 305px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.GyeongNam {
+  left: 310px;
+  top: 370px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.GyeongBuk {
+  left: 350px;
+  top: 230px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .cities > li.Jeju {
+  left: 190px;
+  top: 520px;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .tide {
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  font-weight: 700;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .tide > span {
+  display: block;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .tide > .high {
+  color: #44f;
+}
+#wrap > main > section.whereToGo > .weatherContainer > .tide > .row {
+  color: #f44;
+}
+#wrap > main > section.whereToGo > .recommendContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 500px;
+  height: 640px;
+  padding: 20px 0;
+}
+#wrap > main > section.whereToGo > .recommendContainer > p {
+  width: 100%;
+  height: 0px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 0px;
+  line-height: 0px;
+  text-align: center;
+  background-color: rgb(144, 183, 213);
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+#wrap > main > section.whereToGo > .recommendContainer > p:nth-child(2n) {
+  background-color: rgb(230, 168, 215);
+}
+#wrap > main > section.whereToGo > .recommendContainer > p:first-child {
+  background-color: #fff;
+}
+#wrap > main > section.whereToGo > .recommendContainer > p:last-child {
+  margin-bottom: 0;
+}
+#wrap > main > section.myList {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: rgb(255, 255, 153);
+}
+#wrap > main > section.myList > div.listContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 500px;
+  height: 640px;
+  padding: 20px 0;
+}
+#wrap > main > section.myList > div.listContainer > .inputListForm {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  margin: 5px 0;
+  color: #eee;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  background-color: #333;
+  border-radius: 10px;
+}
+#wrap > main > section.myList > div.listContainer > .inputListForm > label {
+  font-size: 16px;
+}
+#wrap > main > section.myList > div.listContainer > .inputListForm > input#inputList {
+  border: none;
+  outline: none;
+  background: none;
+  width: 50%;
+  height: 20px;
+  background-color: #fff;
+}
+#wrap > main > section.myList > div.listContainer > .inputListForm > button {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #fff;
+  border-radius: 5px;
+}
+#wrap > main > section.myList > div.listContainer > p {
+  display: block;
+  width: 49%;
+  height: 40px;
+  margin: 7px 0;
+  color: #eee;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  background-color: #333;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#wrap > main > section.myList > div.listContainer > p:first-child {
+  width: 100%;
+  font-size: 20px;
+}
+#wrap > main > section.myList > div.listContainer > p:nth-of-type(2) {
+  width: 100%;
+}
+#wrap > main > section.myList > .infoContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 500px;
+  height: 640px;
+  padding: 20px 0;
+}
+#wrap > main > section.myList > .infoContainer > p {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  background-color: #eee;
+  border-radius: 10px;
+}
+#wrap > main > section.myList > .infoContainer > p.infoMenu {
+  width: 48%;
+  cursor: pointer;
+}
+#wrap > main > section.myList > .infoContainer > .editListForm {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  margin: 5px 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  background-color: #eee;
+  border-radius: 10px;
+}
+#wrap > main > section.myList > .infoContainer > .editListForm > label {
+  font-size: 16px;
+}
+#wrap > main > section.myList > .infoContainer > .editListForm > input#editList {
+  border: none;
+  outline: none;
+  background: none;
+  width: 50%;
+  height: 20px;
+  background-color: #fff;
+}
+#wrap > main > section.myList > .infoContainer > .editListForm > button {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #fff;
+  border-radius: 5px;
+}
+#wrap > main > section.community {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: rgb(144, 183, 213);
+}
+#wrap > main > section.community > .listContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 500px;
+  height: 640px;
+  padding: 20px 0;
+}
+#wrap > main > section.community > .listContainer > .searchForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+#wrap > main > section.community > .listContainer > .searchForm > label {
+  padding: 5px;
+  font-weight: 600;
+}
+#wrap > main > section.community > .listContainer > .searchForm > #searchInput {
+  border: none;
+  outline: none;
+  flex: 1 1 0;
+  height: 60%;
+  margin: 0 10px;
+}
+#wrap > main > section.community > .listContainer > .searchForm > .searchBtn {
+  border: none;
+  background: none;
+  outline: none;
+  height: 60%;
+  background-color: rgb(255, 255, 153);
+  border-radius: 5px;
+}
+#wrap > main > section.community > .listContainer > .selector {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 7px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  background-color: rgb(255, 255, 153);
+  border-radius: 10px;
+  cursor: pointer;
+}
+#wrap > main > section.community > .listContainer .ratingList {
+  display: block;
+  width: 49%;
+  height: 40px;
+  margin: 7px 0;
+  color: #eee;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  background-color: #333;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#wrap > main > section.community > .ratingContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  width: 500px;
+  height: 640px;
+  padding: 20px 0;
+}
+#wrap > main > section.community > .ratingContainer > span {
+  display: block;
+  width: 30%;
+  height: 30px;
+  margin-top: 50px;
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+#wrap > main > section.community > .ratingContainer > p {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #f73d3d 0%, #f73d3d 20%, #eeb141 20%, #eeb141 40%, #ebeb52 40%, #ebeb52 60%, #31bb31 60%, #31bb31 80%, #6464f1 80%, #6464f1 100%);
+}
+#wrap > main > section.community > .ratingContainer > p > .score {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #aaa;
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+}
+#wrap > main > section.community > .ratingContainer > p > .score.one {
+  margin-left: 20%;
+}
+#wrap > main > section.community > .ratingContainer > p > .score.two {
+  margin-left: 40%;
+}
+#wrap > main > section.community > .ratingContainer > p > .score.three {
+  margin-left: 60%;
+}
+#wrap > main > section.community > .ratingContainer > p > .score.four {
+  margin-left: 80%;
+}
+#wrap > main > section.community > .ratingContainer > p > .score.five {
+  margin-left: 100%;
+}
+#wrap > main > section.community > .ratingContainer > p > a {
+  position: absolute;
+  top: 5px;
+  width: 50px;
+  text-align: center;
+}
+#wrap > main > section.community > .ratingContainer > .ratingName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-top: 0;
+  background: none;
+  background-color: #eee;
+  border-radius: 0px;
+}
+#wrap > main > section.community > .ratingContainer > button {
+  border: none;
+  outline: none;
+  background: none;
+  width: 80%;
+  height: 50px;
+  margin: 20px auto 0;
+  background-color: #ddd;
+}
+#wrap > footer > address {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #ddd;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,943 @@
+@charset "utf-8";
+
+#wrap {
+    // width: 1100px;
+    // margin: 0 auto;
+    > header {
+        position: fixed;
+        left: calc((100% - 1100px) / 2);
+        top: 0;
+        z-index: 800;
+        height: 100px;
+        padding-top: 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+
+        @media screen and (max-width: 1100px) {
+            left: 0;
+        }
+
+        > .head-container {
+            display: grid;
+            grid-template-columns: 140px 300px 1fr 120px 150px;
+            width: 1120px;
+            height: 50px;
+            margin: 0 auto;
+
+            > h1 {
+                text-indent: -9999px;
+
+                > a {
+                    display: block;
+                    width: 120px;
+                    height: 30px;
+                    margin: 10px;
+                    background-image: url(./../images/logo_myrealtrip.svg);
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            } //h1
+
+            > .input-container {
+                position: relative;
+
+                > i {
+                    position: absolute;
+                    left: 10px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    color: #aaa;
+                    font-size: 16px;
+                    background-color: transparent;
+                }
+                > input {
+                    width: calc(100% - 30px);
+                    height: 40px;
+                    margin: 5px 0;
+                    padding-left: 30px;
+                    color: #888;
+                    font-weight: 600;
+                    font-size: 16px;
+                    background-color: #eee;
+                    border: none;
+
+                    transition: all 0.5s;
+
+                    &:focus {
+                        box-shadow: 0px 0px 3px #ddd;
+                        background-color: #fff;
+                        border: none;
+                        outline: none;
+                    }
+                }
+            }
+            > .partner-login {
+                grid-column: 4/5;
+                > a {
+                    display: block;
+                    margin: 5px;
+                    padding: 5px 0;
+                    line-height: 30px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    text-align: center;
+                    &:hover {
+                        background-color: #fafafa;
+                    }
+                }
+            }
+            > .user-login {
+                grid-column: 5/6;
+
+                > a {
+                    display: block;
+                    margin: 5px;
+                    padding: 5px 0;
+                    line-height: 30px;
+                    color: #fff;
+                    font-weight: 500;
+                    font-size: 14px;
+                    text-align: center;
+                    background-color: #4189e7;
+                    border-radius: 10px;
+
+                    &:hover {
+                        background-color: #87ceeb;
+                    }
+                }
+            }
+        } //.head-container
+
+        > nav > .gnb {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            width: 1100px;
+            height: 50px;
+            margin: 0 auto;
+            > li {
+                width: 150px;
+                padding: 10px;
+                > a {
+                    display: block;
+                    height: 40px;
+                    font-size: 16px;
+                    line-height: 40px;
+                    text-align: center;
+
+                    &.on,
+                    &:hover {
+                        border-bottom: 5px solid #70c5fd;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        } //nav>.gnb
+    } //header
+
+    > section {
+        width: 1100px;
+        margin: 150px auto 50px;
+        > .theme-container {
+            > .cityslides {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+
+                > .cityslides-container {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-around;
+                    width: 2200px;
+                    // 슬라이드 이동
+                    margin-left: -1100px;
+                    margin-left: 0;
+
+                    transition: all 0.5s;
+                    > .photocard {
+                        overflow: hidden;
+                        width: 250px;
+                        margin: 0 auto;
+
+                        border-radius: 15px;
+
+                        > a {
+                            display: block;
+                            position: relative;
+                            height: 350px;
+                            /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 50%); */
+
+                            > h3 {
+                                position: absolute;
+                                z-index: 100;
+                                left: 20px;
+                                top: 50px;
+                                color: #fff;
+                                font-size: 30px;
+                            }
+
+                            > p {
+                                position: absolute;
+                                left: 20px;
+                                top: 60px;
+                                z-index: 100;
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: #fff;
+                            }
+
+                            > img {
+                                position: absolute;
+                                left: -20px;
+                                top: 0;
+                                height: 100%;
+                                transition: all 3s;
+                            }
+
+                            > span {
+                                position: absolute;
+                                left: 20px;
+                                top: 280px;
+                                z-index: 100;
+
+                                width: 70px;
+                                height: 30px;
+                                font-weight: 500;
+                                line-height: 30px;
+                                text-align: center;
+                                background-color: #fff;
+                                border-radius: 5px;
+                            }
+
+                            &:after {
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: 10;
+                                width: 230px;
+                                height: 300px;
+                                background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 50%);
+                                content: "";
+                            }
+
+                            &:hover > img {
+                                transform: scale(1.15);
+                            }
+                        } //a
+                    } //.photocard
+                } //.cityslides-container
+
+                > .prev {
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    display: none;
+                    width: 40px;
+                    height: 40px;
+                    z-index: 300;
+                    background-color: #fff;
+                    background-image: url(./../images/city_prev.svg);
+                    background-size: 25px 25px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    border: 1px solid #eee;
+                    border-radius: 50%;
+                    transform: translate(0, -50%);
+                    // content: "";
+
+                    &:hover {
+                        box-shadow: 0px 0px 3px #999;
+                    }
+                } //.prev
+
+                > .next {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    z-index: 300;
+                    background-color: #fff;
+                    background-image: url(./../images/city_next.svg);
+                    background-size: 25px 25px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    border: 1px solid #eee;
+                    border-radius: 50%;
+                    transform: translate(0, -50%);
+                    // content: "";
+
+                    &:hover {
+                        box-shadow: 0px 0px 3px #999;
+                    }
+                } //.next
+            } //.cityslides
+
+            > .mainslide {
+                overflow: hidden;
+                position: relative;
+                margin-top: 80px;
+                > .mainslides-container {
+                    display: flex;
+                    width: calc(100% * 10);
+                    margin-left: 0px;
+
+                    transition: all 0.5s;
+                    > a {
+                        display: block;
+                        width: 100%;
+                        height: calc(1100px / 2120 * 560);
+                        background-size: cover;
+                        background-position: center center;
+                        border-radius: 5px;
+
+                        > p {
+                            text-indent: -99999px;
+                        }
+                    }
+                } //.mainslides-container
+
+                // 슬라이더 호버시 화살표 표시
+                &:hover > .prev,
+                &:hover > .next {
+                    display: block;
+                    height: 30px;
+                }
+
+                > .prev {
+                    position: absolute;
+                    left: 20px;
+                    top: 50%;
+                    display: none;
+                    width: 30px;
+                    height: 0px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    background-image: url(./../images/city_prev.svg);
+                    background-size: 25px 25px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                    transform: translate(0, -50%);
+                    // content: "";
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+                } //.prev
+
+                > .next {
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    display: none;
+                    width: 30px;
+                    height: 0px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    background-image: url(./../images/city_next.svg);
+                    background-size: 25px 25px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                    transform: translate(0, -50%);
+                    // content: "";
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+                } //.next
+
+                > .selector {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100px;
+                    height: 20px;
+                    margin: 0 auto;
+                    > li {
+                        display: block;
+                        width: 8px;
+                        height: 8px;
+                        background-color: #aaa;
+                        text-indent: -9999px;
+                        border-radius: 50%;
+                    }
+                    > .on {
+                        background-color: #000;
+                    }
+                }
+            } //.mainslide
+        } //.theme-container
+
+        > .hotplace-slide {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 10px;
+            > h3 {
+                height: 30px;
+                padding: 10px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            > .hotplace-container {
+                display: flex;
+                width: calc(100% * 6.5);
+                height: 340px;
+                margin-left: 0px;
+                // margin-left: calc(-1100px * 5.5);
+
+                transition: all 0.5s;
+                > .hotplace {
+                    display: block;
+                    width: calc(1100px / 4);
+                    height: 320px;
+                    margin: 0 10px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border: 1px solid #aaa;
+                    border-radius: 5px;
+
+                    transition: all 0.3s;
+                    > p {
+                        text-indent: -99999px;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 2px 2px 2px #ddd;
+                        background-position: 0 -5px;
+                    }
+                }
+            } //.hotplace-slide
+
+            > .prev {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 300;
+                background-color: #fff;
+                background-image: url(./../images/city_prev.svg);
+                background-size: 25px 25px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                transform: translate(0, 0);
+                // content: "";
+
+                &:hover {
+                    box-shadow: 0px 0px 3px #999;
+                }
+            } //.prev
+
+            > .next {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 300;
+                background-color: #fff;
+                background-image: url(./../images/city_next.svg);
+                background-size: 25px 25px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                transform: translate(0, 0);
+                // content: "";
+
+                &:hover {
+                    box-shadow: 0px 0px 3px #999;
+                }
+            } //.next
+        } //.hotplace-slide
+
+        > .citypass-slide {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 10px;
+            > h3 {
+                height: 30px;
+                padding: 10px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            > .citypass-container {
+                display: flex;
+                width: 100%;
+                height: 340px;
+                margin-left: 0px;
+                // margin-left: calc(-1100px * 5.5);
+
+                transition: all 0.5s;
+                > .citypass {
+                    display: block;
+                    width: calc(1100px / 4);
+                    height: 320px;
+                    margin: 0 10px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border: 1px solid #aaa;
+                    border-radius: 5px;
+
+                    transition: all 0.3s;
+                    > p {
+                        text-indent: -99999px;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 2px 2px 2px #ddd;
+                        background-position: 0 -5px;
+                    }
+                }
+            } //.hotplace-slide
+        } //.citypass-slide
+
+        > .mustticket-slide {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 10px;
+            > h3 {
+                height: 30px;
+                padding: 10px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            > .mustticket-container {
+                display: flex;
+                width: calc(100% * 3.5);
+                height: 340px;
+                margin-left: 0px;
+                // margin-left: calc(-1100px * 5.5);
+
+                transition: all 0.5s;
+                > .mustticket {
+                    display: block;
+                    width: calc(1100px / 4);
+                    height: 320px;
+                    margin: 0 10px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border: 1px solid #aaa;
+                    border-radius: 5px;
+
+                    transition: all 0.3s;
+                    > p {
+                        text-indent: -99999px;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 2px 2px 2px #ddd;
+                        background-position: 0 -5px;
+                    }
+                }
+            } //.hotplace-slide
+
+            > .prev {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 300;
+                background-color: #fff;
+                background-image: url(./../images/city_prev.svg);
+                background-size: 25px 25px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                transform: translate(0, 0);
+                // content: "";
+
+                &:hover {
+                    box-shadow: 0px 0px 3px #999;
+                }
+            } //.prev
+
+            > .next {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 300;
+                background-color: #fff;
+                background-image: url(./../images/city_next.svg);
+                background-size: 25px 25px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                transform: translate(0, 0);
+                // content: "";
+
+                &:hover {
+                    box-shadow: 0px 0px 3px #999;
+                }
+            } //.next
+        } //.mustticket-slide
+
+        > .recommend-slide {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 10px;
+            > h3 {
+                height: 30px;
+                padding: 10px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            > .recommend-container {
+                display: flex;
+                width: 100%;
+                height: 340px;
+                margin-left: 0px;
+                // margin-left: calc(-1100px * 5.5);
+
+                transition: all 0.5s;
+                > .recommend {
+                    display: block;
+                    width: 250px;
+                    height: 320px;
+                    margin: 0 10px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border: 1px solid #aaa;
+                    border-radius: 5px;
+
+                    transition: all 0.3s;
+                    > p {
+                        text-indent: -99999px;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 2px 2px 2px #ddd;
+                        background-position: 0 -5px;
+                    }
+                }
+            } //.hotplace-slide
+        } //.recommend-slide
+
+        > .transport-slide {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 10px;
+            > h3 {
+                height: 30px;
+                padding: 10px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            > .transport-container {
+                display: flex;
+                width: calc(100% * 4.25);
+                height: 340px;
+                margin-left: 0px;
+                // margin-left: calc(-1100px * 5.5);
+
+                transition: all 0.5s;
+                > .transport {
+                    display: block;
+                    width: calc(1100px / 4);
+                    height: 320px;
+                    margin: 0 10px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border: 1px solid #aaa;
+                    border-radius: 5px;
+
+                    transition: all 0.3s;
+                    > p {
+                        text-indent: -99999px;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 2px 2px 2px #ddd;
+                        background-position: 0 -5px;
+                    }
+                }
+            } //.hotplace-slide
+
+            > .prev {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 300;
+                background-color: #fff;
+                background-image: url(./../images/city_prev.svg);
+                background-size: 25px 25px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                transform: translate(0, 0);
+                // content: "";
+
+                &:hover {
+                    box-shadow: 0px 0px 3px #999;
+                }
+            } //.prev
+
+            > .next {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 300;
+                background-color: #fff;
+                background-image: url(./../images/city_next.svg);
+                background-size: 25px 25px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 1px solid #eee;
+                border-radius: 50%;
+                transform: translate(0, 0);
+                // content: "";
+
+                &:hover {
+                    box-shadow: 0px 0px 3px #999;
+                }
+            } //.next
+        } //.mustticket-slide
+
+        > .info {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 10px;
+
+            > h3 {
+                height: 30px;
+                padding: 10px;
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            > .sns {
+                display: flex;
+                justify-content: space-evenly;
+                margin-bottom: 150px;
+                margin-left: 10px;
+                padding: 30px 0;
+                background-color: #f8f9fa;
+                border: 1px solid #eee;
+                > div {
+                    width: 300px;
+
+                    > h4 {
+                        display: inline-block;
+                        position: relative;
+                        top: -10px;
+                        > a {
+                            display: block;
+                            color: #51a8ef;
+                            height: 30px;
+                            margin: 10px;
+                            font-size: 14px;
+                            line-height: 30px;
+                        }
+                    }
+
+                    > p {
+                        color: #666;
+                        font-size: 14px;
+                        line-height: 1.8em;
+                    }
+                }
+            } //.sns
+        } //.info
+    } //section
+
+    > footer {
+        color: #888;
+        border-top: 1px solid #eee;
+        padding-bottom: 100px;
+        > .upper {
+            display: flex;
+            justify-content: space-between;
+            width: 1100px;
+            margin: 50px auto 0;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            > .helpdesk {
+                > h2 {
+                    margin-bottom: 20px;
+                }
+                > .help {
+                    display: block;
+                    width: 100px;
+                    margin-top: 10px;
+                    padding: 5px 10px;
+                    color: #333;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 1.8em;
+                    text-align: center;
+                    border: 1px solid #888;
+                    border-radius: 5px;
+
+                    cursor: pointer;
+                }
+            }
+
+            > .co-intro {
+                display: flex;
+                > ul {
+                    width: 150px;
+                    > li {
+                        height: 30px;
+                        > a {
+                            font-size: 14px;
+                        }
+                        &:first-child > a {
+                            color: #000;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        } //.upper
+        > .lower {
+            width: 1100px;
+            margin: 0 auto;
+            padding: 10px 0;
+            > .menucontainer {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 10px;
+                > .policy {
+                    display: flex;
+                    > li {
+                        &:nth-child(2) > a {
+                            font-weight: 700;
+                        }
+                        > a {
+                            display: block;
+                            height: 30px;
+                            line-height: 30px;
+                            margin-left: 10px;
+                            margin-right: 20px;
+                            &:hover {
+                                color: skyblue;
+                                background-color: #d7e9f0;
+                            }
+                        }
+                    }
+                }
+
+                > .sns {
+                    display: flex;
+                    margin-right: 100px;
+                    > li {
+                        &:nth-child(4) {
+                            border-right: 1px solid #aaa;
+                        }
+                        > a {
+                            display: block;
+                            width: 20px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            color: #aaa;
+                            font-size: 20px;
+                            line-height: 30px;
+                            > img {
+                                padding-top: 5px;
+                            }
+                        }
+                    }
+                }
+            } //.menucontainer
+        } //.lower
+    } //footer
+
+    > aside {
+        display: block;
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        width: 50px;
+        height: 50px;
+        > p {
+            text-indent: -9999px;
+        }
+        > .chat {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./../images/chat.png);
+            background-position: center center;
+            background-size: 50px 50px;
+            background-repeat: no-repeat;
+
+            transition: all 0.5 ease-in-out;
+            cursor: pointer;
+            &:active {
+                background-size: 46px 46px;
+            }
+        }
+
+        > .close {
+            display: none;
+            position: absolute;
+            left: 0;
+            height: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./../images/close.png);
+            background-size: contain;
+            cursor: pointer;
+        }
+
+        > .chat-container {
+            display: none;
+            // display: block;
+            position: absolute;
+            right: 0px;
+            bottom: 60px;
+            width: 400px;
+            height: 750px;
+            background-image: url(./../images/chatpage.png);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            border-radius: 40px;
+            box-shadow:
+                5px 5px 15px #aaa,
+                -5px -5px 15px #aaa;
+            cursor: pointer;
+        }
+    } //aside
+} //#wrap

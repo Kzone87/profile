@@ -1,0 +1,146 @@
+body#main {
+    > #wrap {
+        > header {
+            order: 100;
+            position: relative;
+            width: 100%;
+            height: 75px;
+            background-color: #26be59;
+
+            @media #{$tablet} {
+                height: 130px;
+            }
+
+            @media #{$mobile} {
+                height: 170px;
+            }
+
+            > h1 {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                width: 150px;
+                background-color: #26be59;
+
+                @media #{$tablet} {
+                    top: 50px;
+                    width: 120px;
+                }
+
+                @media #{$mobile} {
+                    left: 50%;
+                    margin-left: -75px;
+                }
+
+                > a {
+                    @include flexCenter();
+                    height: 150px;
+                    color: #fff;
+                    font-size: 20px;
+                    font-family: $titFont;
+                    text-align: center;
+                    text-transform: uppercase;
+
+                    @media #{$mobile} {
+                        height: 120px;
+                    }
+                }
+            } //h1
+
+            > .btn-gnb {
+                display: none;
+
+                @media #{$tablet} {
+                    background: none;
+                    border: none;
+                    outline: none;
+
+                    display: block;
+                    position: absolute;
+                    right: 10px;
+                    top: 75px;
+
+                    width: 30px;
+                    height: 30px;
+                    text-indent: -9999px;
+                    background-image: url("./../images/menu_toggle_btn.png");
+                }
+            } //btn-gnb
+
+            > nav > ol.gnb {
+                @include flexLayout();
+
+                position: absolute;
+                left: 200px;
+                top: 50%;
+                margin-top: -10px;
+
+                @media #{$tablet} {
+                    display: none;
+                }
+
+                > li {
+                    > a {
+                        display: block;
+                        padding: 0 20px;
+                        color: #fff;
+                    }
+                } //li
+            } //ol.gnb
+
+            > ul.info {
+                @include flexLayout();
+                justify-content: space-between;
+                position: absolute;
+                right: 30px;
+                top: 50%;
+
+                width: 120px;
+                margin-top: -10px;
+
+                @media #{$tablet} {
+                    left: 0;
+                    right: initial;
+                    top: 0;
+                    width: 100%;
+                    margin-top: 0;
+                    border-bottom: 1px solid #33cc66;
+                    box-sizing: border-box;
+                }
+
+                > li {
+                    width: 20px;
+                    @include bgBasic();
+
+                    &:nth-child(1) {
+                        background-image: url("./../images/info_icon_01.png");
+                    }
+                    &:nth-child(2) {
+                        background-image: url("./../images/info_icon_02.png");
+                    }
+                    &:nth-child(3) {
+                        background-image: url("./../images/info_icon_03.png");
+                    }
+                    &:nth-child(4) {
+                        background-image: url("./../images/info_icon_04.png");
+                    }
+
+                    @media #{$tablet} {
+                        width: 25%;
+                    }
+
+                    > a {
+                        display: block;
+                        height: 20px;
+                        text-indent: -9999px;
+
+                        @media #{$tablet} {
+                            height: 50px;
+                        }
+                    }
+                } //li
+            } //ul.info
+        } //header
+    } //#wrap
+} //body#main

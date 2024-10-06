@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판</title>
+</head>
+
+<body>
+
+  <h1>/board/write</h1>
+
+  <form action="/board/write" method="post" autocomplete="off">
+    <fieldset>
+      <legend>새글쓰기</legend>
+
+      <ul>
+        <li>
+          <label for="title">글제목</label>
+          <input type="text" name="title" id="title" autofocus>
+        </li>
+
+        <li>
+          <label for="content">글내용</label>
+          <textarea name="content" id="content"></textarea>
+        </li>
+
+        <li>
+          <label for="name">작성자</label>
+          <input type="text" name="name" id="name">
+        </li>
+
+        <li>
+          <label for="pwd">비밀번호</label>
+          <input type="password" name="pwd" id="pwd">
+        </li>
+      </ul>
+    </fieldset>
+    <button>확인</button>
+    <button type="button" onclick="history.back()">취소</button>
+  </form>
+
+</body>
+
+</html>

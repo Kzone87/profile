@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>진짜 나다운 여행 - 마이리얼트립</title>
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script defer src="https://kit.fontawesome.com/9ad59cd5cc.js" crossorigin="anonymous"></script>
+  <script defer src="./js/function.js"></script>
+</head>
+
+<body>
+
+  <div id="wrap">
+    <header>
+      <div class="head-container">
+        <h1><a href="#">마이리얼트립</a></h1>
+        <div class="input-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="search-item" id="search-item" placeholder="도시나 상품을 검색해보세요">
+        </div>
+        <p class="partner-login"><a href="#">파트너 로그인</a></p>
+        <p class="user-login"><a href="#">로그인 및 회원가입</a></p>
+      </div>
+
+      <nav>
+        <ul class="gnb">
+          <li><a class="on" href="#">테마</a></li>
+          <li><a href="#">핫플</a></li>
+          <li><a href="#">시티패스</a></li>
+          <li><a href="#">필수티켓</a></li>
+          <li><a href="#">추천상품</a></li>
+          <li><a href="#">제주교통</a></li>
+          <li><a href="#">정보</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <section>
+      <h2 class="sr-only">상품페이지</h2>
+
+      <div class="theme-container">
+        <div class="cityslides">
+          <div class="cityslides-container">
+            <div class="photocard">
+              <a href="#">
+                <h3>바르셀로나</h3>
+                <img src="./images/photocard_barcelona.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>오사카</h3>
+                <img src="./images/photocard_osaka.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>파리</h3>
+                <img src="./images/photocard_paris.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>방콕</h3>
+                <img src="./images/photocard_bankok.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>로마</h3>
+                <img src="./images/photocard_rome.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>다낭</h3>
+                <img src="./images/photocard_danang.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>런던</h3>
+                <img src="./images/photocard_london.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+            <div class="photocard">
+              <a href="#">
+                <h3>도쿄</h3>
+                <img src="./images/photocard_tokyo.jpg" alt="#">
+                <span>둘러보기</span>
+              </a>
+            </div>
+          </div>
+          <a href="#" class="prev"></a>
+          <a href="#" class="next"></a>
+        </div>
+        <div class="mainslide">
+          <div class="mainslides-container">
+            <a class="mainbanner" href="#">
+              <p>정부지원 숙박쿠폰</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>6월한정 추가할인 혜택</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>소노 워터파트 성수기 얼리버드 세일</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>에어프레미아 미주 프로모션 항공 특가와 인기 투어까지</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>하이원 리조트 워터월드 얼리버드 세일 6/24 오픈</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>선착순 3%할인 받고 아름다운 스위스 여행 다녀오세요!</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>오사카 하루카스 전망대 선착순 1+1 특가</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>LA 유니버셜 스튜디오 할리우드, 스튜디오 투어 60주년 기념</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>런던 밖에도 볼 것은 많다!오직, 마이리얼트립에서만 색다른 영국 여행</p>
+            </a>
+            <a class="mainbanner" href="#">
+              <p>오전엔 로마여행 필수 코스 바티칸 투어 저녁엔 인생야경 사진 남기기</p>
+            </a>
+          </div>
+          <a href="#" class="prev"></a>
+          <a href="#" class="next"></a>
+          <ul class="selector">
+            <li class="on">selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+            <li>selected</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hotplace-slide">
+        <h3>전국 핫플 최저가</h3>
+        <div class="hotplace-container">
+          <a class="hotplace" href="#">
+            <p>롯데월드타워 전망대 서울스카이 입장권 6월</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>롯데월드 아쿠아리움 입장권 6월</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>특가 에버랜드 오후이용권(방문날짜지정)</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>특가[바로사용]롯데월드 어드벤처 종합&파크이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[경남 거제]거제 케이블카 이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[대구 동구]대구 아쿠아리움</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[경기 동두천]놀자숲 어드벤처/숲 테마파크/실내 체험 이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[경기 광교]아쿠아플라넷 광교 이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>한정특가 춘천 삼악산 호수 케이블카 입장권(커플&패밀리권)</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[부산] 부산투어패스 부산여행 프리패스권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>아쿠아플라넷 여수 입장권&종합권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[대구] 이월드 자유이용권 6월</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[경기 화성] 제부도해상케이블카</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[당일 사용] 서울랜드 AFTER6 야간 자유이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[전북 부안] 소노벨 변산 오션플레이 입장권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[전남]여수 유월드 루지 콤보 패키지 이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[당일사용]서울랜드 AFTER4 자유이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[대구]엑스코 상상체험 키즈월드</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[당일사용] 코엑스 아쿠아리움 입장권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[충남 천안] 소노벨 오션어드벤처 미들시즌 종일권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[전남 여수] 테디베어 뮤지엄 입장권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[강원 평창] 휘닉스 평창 블루캐니언 연간이용권(단품/패밀리권 숙박)</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[춘천]레고랜드 1일 이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[당일사용] 서울랜드 자유이용권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>코엑스 아쿠아리움 연간이용권 입장권</p>
+          </a>
+          <a class="hotplace" href="#">
+            <p>[부산]보트앤 퍼블릭 요트투어 이용권</p>
+          </a>
+        </div>
+
+        <a href="#" class="prev"></a>
+        <a href="#" class="next"></a>
+      </div>
+
+      <div class="citypass-slide">
+        <h3>제주도 시티패스 추천 상품</h3>
+        <div class="citypass-container">
+          <a href="#" class="citypass">
+            <p>[제주전체]제주투어패스 48시간 프리패스권</p>
+          </a>
+          <a href="#" class="citypass">
+            <p>[특가][제주 전지역]제주여행 24시간/48시간/72시간/120시간</p>
+          </a>
+          <a href="#" class="citypass">
+            <p>제주타임패스권</p>
+          </a>
+          <a href="#" class="citypass">
+            <p>[제주]제주투어패스 자유이용권 타임제로</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="mustticket-slide">
+        <h3>제주 필수 티켓</h3>
+        <div class="mustticket-container">
+          <a href="#" class="mustticket">
+            <p>[제주전체] 제주투어패스 48시간 프리패스권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주시] 제주 에코랜드 테마파크 입장권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[안덕] 제주 뽀로로 앤 타요 테마파크</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[특가★] [제주 전지역] 제주여행 24시간/ 48시간 / 72시간 / 120시간 제주올패스 이용권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[우도] 제주 훈데르트바서파크 입장권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주 애월]9.81 파크 제주 카트 이용권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주]신화월드 테마파크&워터파크 자유이용권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주]민속촌 입장권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주]아르떼뮤지엄 입장권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주]스누피가든 (24.1.1부터 이용가능)</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주 서귀포]제주 윈드 카트 1947 이용권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주시]제주레일바이크 이용권(용눈이오름)</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[제주시]메이즈랜드(미로공원) 입장권</p>
+          </a>
+          <a href="#" class="mustticket">
+            <p>[표선]제주 낙타트래킹+먹이주기체험</p>
+          </a>
+        </div>
+
+        <a href="#" class="prev"></a>
+        <a href="#" class="next"></a>
+      </div>
+
+      <div class="recommend-slide">
+        <h3>제주도 기타 교통수단 추천 상품</h3>
+        <div class="recommend-container">
+          <a href="#" class="recommend">
+            <p>[제주]마라도&가파도 정기 여객선+짜장&짬뽕(24.01.16~)</p>
+          </a>
+          <a href="#" class="recommend">
+            <p>[특가]마라도 가는 여객선</p>
+          </a>
+          <a href="#" class="recommend">
+            <p>[대정]마라도정기여객선 (운진항)</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="transport-slide">
+        <h3>제주도 기타 교통수단 추천 상품</h3>
+        <div class="transport-container">
+          <a href="#" class="transport">
+            <p>[제주서쪽]제주1번가 프리미엄 서쪽감성 제주도 버스투어[매일출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주동쪽]제주1번가 프리미엄 동쪽감성 제주도 버스투어[매일 출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주]제주도 차량 탁송 서비스(편도/왕복)카 캐리어,로드 탁송 가능</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[서울/강서]김포공항 실내 주차 할인권+무료 픽업 서비스</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주투어]*제주택시투어*제주 토박이와 함께하는 즐거운 제주도 택시투어</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주]제주공항&숙소&골프장으로 당일 짐배송 서비스</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주동쪽]트립이즈마인 제부도 동부프리미엄 리무진 버스여행[매일 출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주]제주도 카시트,유모차 대여 무료배달,수거/사전설치 전문업체</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[대정]마라도정기여객선 (운진항)</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[우도]자유롭게 내리고 타는 우도 해안도로 순환버스 티켓</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[우도]우도전기차,전동차,전기 바이크,전기자전거,코코,사이드카 종일 이용권</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주서쪽]제부도 서부 감성투어 1일 버스투어[매일 출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주동쪽]제주도 동부 감성/프리미엄투어 1일 버스투어[매일 출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[중문/서귀포]제주도 중문감성투어 1일 버스투어[매일 출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[우도]제주도 우도 1일 버스여행 원데이 패키지[매일 출발]</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주동쪽]럭셔리 벤츠버스타고'동쪽'의 여름투어(월/수/금) 추가비용 X</p>
+          </a>
+          <a href="#" class="transport">
+            <p>[제주서쪽]럭셔리 벤츠버스타고 '서쪽'의 여름 투어(화/목/토) 추가비용 X</p>
+          </a>
+        </div>
+
+        <a href="#" class="prev"></a>
+        <a href="#" class="next"></a>
+      </div>
+
+      <div class="info">
+        <h3>마이리얼트립의 여행 정보</h3>
+        <div class="sns">
+          <div class="facebook">
+            <img src="./images/facebook.svg" alt="facebook-logo">
+            <h4><a href="#">마이리얼트립 페이스북 페이지 &gt;</a></h4>
+            <p>
+              마이리얼트립 페이스북 페이지에서 각 여행지별로 정리된 유용한 정보와 여행자분들을 위한 이벤트를 확인해보세요.
+            </p>
+          </div>
+          <div class="instagram">
+            <img src="./images/instagram.svg" alt="instagram-logo">
+            <h4><a href="#">마이리얼트립 인스타그램 &gt;</a></h4>
+            <p>
+              세계 곳곳에서 활동중인 마이리얼트립의 가이드님과 여행자분들이 보내주신 아름다운 사진을 감상해보세요.
+            </p>
+          </div>
+          <div class="naver">
+            <img src="./images/naver.svg" alt="naver-logo">
+            <h4><a href="#">마이리얼트립 네이버 블로그 &gt;</a></h4>
+            <p>
+              마이리얼트립의 네이버 블로그에서 리얼생생 여행정보, 여행 후기, 추천 가이드 정보를 확인해보세요.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="upper">
+        <div class="helpdesk">
+          <h2>고객지원실 운영안내</h2>
+          <p>
+            연중무휴 09:00-18:00 <br />
+            (점심시간 12:00-13:00) <br />
+            ※ 항공권 환불 - 연중무휴 09:00-17:00 접수 가능 <br />
+            ※ 항공권 변경 - 평일 09:00-17:00 접수 가능 <br />
+            유선상담 1670-8208
+          </p>
+          <a class="help">
+            1:1채팅상담
+          </a>
+        </div>
+
+        <div class="co-intro">
+          <ul>
+            <li>소개</li>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">채용</a></li>
+            <li><a href="#">공고</a></li>
+          </ul>
+          <ul>
+            <li>파트너</li>
+            <li><a href="#">파트너 홈</a></li>
+            <li><a href="#">마케팅/제휴 문의</a></li>
+          </ul>
+          <ul>
+            <li>지원</li>
+            <li><a href="#">공지사항/FAQ</a></li>
+            <li><a href="#">최저가 보장제</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lower">
+
+        <div class="menucontainer">
+          <ul class="policy">
+            <li><a href="#">이용 약관</a></li>
+            <li><a href="#">개인정보 처리방침</a></li>
+            <li><a href="#">취소 및 환불 정책</a></li>
+          </ul>
+          <ul class="sns">
+            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#"><img class="e1acrtwo1 css-enqxo8--SNSList--LinkIcon" src="https://dffoxz5he03rp.cloudfront.net/icons/ic_naver_20x20_gray_400.svg" alt="icon"></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-apple"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-google-play"></i></a></li>
+          </ul>
+        </div>
+        <p>
+          상호명 (주)마이리얼트립 | 대표 이동건 | 개인정보보호책임자 정재훈 | 사업자등록번호 209-81-55339 사업자정보확인 | 통신판매업신고번호 2019-서울서초-0260
+          |관광사업등록번호 : 제2019-3호 <br />
+          주소 서울특별시 서초구 강남대로 311, 드림플러스 강남 18층 (서초동, 한화생명보험빌딩) | 이메일 help@myrealtrip.com | 마케팅 문의
+          marketing@myrealtrip.com <br />
+          제휴 문의 partnership@myrealtrip.com <br />
+          <br />
+          자사는 서울특별시관광협회 공제영업보증보험에 가입되어 있습니다. 영업보증보험: 1.5억원 / 기획여행보증: 2억원 <br />
+          마이리얼트립은 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 상품·거래정보 및 거래에 대하여 책임을 지지않습니다. <br />
+          부득이한 사정에 의해 확정된 여행일정이 변경되는 경우 여행자의 사전 동의를 받습니다.
+        </p>
+      </div>
+    </footer>
+
+    <aside>
+      <p class="chat">1:1상담 열기</p>
+      <p class="close">1:1상담 닫기</p>
+      <div class="chat-container">
+      </div>
+    </aside>
+  </div>
+
+</body>
+
+</html>

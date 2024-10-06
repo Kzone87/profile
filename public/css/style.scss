@@ -1,0 +1,144 @@
+// Variables
+$primary-color: #4a90e2;
+$secondary-color: #f7f7f7;
+$text-color: #333;
+$font-stack: 'Arial', sans-serif;
+
+html {
+    scroll-behavior: smooth; /* CSS를 통한 부드러운 스크롤 */
+}
+
+body {
+    font-family: $font-stack;
+    line-height: 1.6;
+    background-color: $secondary-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding-top: 80px; // 고정된 헤더 높이에 맞춰 패딩 추가
+}
+
+h1, h2, h3 {
+    color: $primary-color;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header {
+    position: fixed; /* 헤더 고정 */
+    top: 0; /* 화면 상단에 위치 */
+    left: 0; /* 왼쪽에 위치 */
+    width: 100%; /* 전체 너비 사용 */
+    background-color: white; /* 배경색 설정 */
+    z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    
+    .gnb > ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 10px 0; /* 패딩 조정 */
+        
+        li {
+            margin: 0 20px; // 메뉴 간격 증가
+            font-size: 1.2em; // 메뉴 항목 크기 증가
+            font-weight: bold; // 글씨 두께 증가
+            position: relative; /* 드롭다운 메뉴를 부모에 대해 절대 위치시키기 위해 상대 위치 설정 */
+
+            a {
+                text-decoration: none;
+                color: $text-color;
+                transition: color 0.3s;
+                padding: 10px 15px; // 패딩 추가하여 클릭 영역 증가
+                border-radius: 5px; // 모서리 둥글게
+
+                &:hover {
+                    color: $primary-color;
+                    background-color: rgba($primary-color, 0.1); // 호버 시 배경색 추가
+                }
+            }
+
+            // 드롭다운 메뉴
+            .dropdown {
+                display: none; /* 기본적으로 숨김 */
+                position: absolute;
+                left: 0;
+                top: 100%; /* 메뉴 아래 위치 */
+                background-color: white; /* 배경색 */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+                z-index: 1000; /* 다른 요소 위에 표시 */
+
+                li {
+                    display: block; /* 세로로 나열 */
+                    padding: 10px 15px; /* 패딩 추가 */
+                    text-align: left; /* 왼쪽 정렬 */
+                    font-size: 0.9em; /* 드롭다운 메뉴 항목 크기 조정 */
+                    white-space: nowrap; /* 한 줄로 유지 */
+
+                    a {
+                        color: $text-color; /* 링크 색상 */
+                        &:hover {
+                            background-color: rgba($primary-color, 0.1); /* 호버 시 배경색 */
+                        }
+                    }
+                }
+            }
+
+            // 호버 시 드롭다운 메뉴 보이기
+            &:hover .dropdown {
+                display: block; /* 호버 시 보이게 함 */
+            }
+        }
+    }
+}
+
+section {
+    margin: 40px 0; /* 섹션 간의 간격 조정 */
+
+    article {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #eaeaea;
+        border-radius: 5px;
+        background-color: #fafafa;
+
+        h3 {
+            color: $primary-color;
+            margin-bottom: 15px; /* 제목과 본문 간 간격 증가 */
+        }
+
+        p {
+            margin: 15px 0; /* 문단 간 간격 증가 */
+            line-height: 1.8; /* 줄 간격 조정 */
+            font-size: 1.1em; /* 글꼴 크기 증가 */
+            text-align: justify; /* 양쪽 정렬 */
+        }
+    }
+}
+
+.intro {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: #666;
+}

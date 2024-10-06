@@ -1,0 +1,582 @@
+@charset "utf-8";
+
+$primaryColor: #66bb6a;
+$bgColor: #fafafa;
+$textColor: #464646;
+$pastelPink: rgb(230, 168, 215); //파스텔 핑크
+$pastelBlue: rgb(144, 183, 213); //파스텔 블루
+$pastelYellow: rgb(255, 255, 153); //파스텔 옐로우
+
+@mixin sectionSetPC {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+@mixin containerSetPc {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    overflow: auto;
+    position: relative;
+    width: 500px;
+    height: 640px;
+    padding: 20px 0;
+}
+
+@keyframes changeBgColor {
+    0% {
+        background-color: #ddd;
+    }
+
+    100% {
+        background-color: #333;
+    }
+}
+
+@keyframes arrivalBgChange {
+    0% {
+        font-size: 14px;
+        background-color: #66bb6a;
+    }
+
+    100% {
+        font-size: 18px;
+        background-color: #eee;
+    }
+}
+
+body {
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+#wrap {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+    color: $textColor;
+    font-family: "open sans", "Montserrat";
+    background-color: $primaryColor;
+    border-radius: 20px;
+
+    > header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        background-color: $bgColor;
+        // border-radius: 5px;
+
+        > h1 {
+            width: 10%;
+            padding: 20px;
+            font-weight: 800;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        > nav {
+            width: 50%;
+            margin-right: 50px;
+            > .gnb {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+                // border: 1px solid #000;
+                > li {
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    } //header
+
+    > main {
+        display: flex;
+        width: 300%;
+        height: auto;
+        // margin-left: -2400px;
+
+        transition: all 0.5s ease-in-out;
+
+        > section.whereToGo {
+            @include sectionSetPC();
+            > .weatherContainer {
+                @include containerSetPc();
+                // border: 1px solid #000;
+                > .mapFrame {
+                    display: block;
+                    margin: 0 auto;
+                    > img {
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+                } //.frame
+
+                > .cities {
+                    > li {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 80px;
+                        height: 100px;
+                        background-color: $pastelYellow;
+                        border-radius: 10px;
+
+                        > .name {
+                            display: block;
+                            font-weight: 600;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+
+                        > .icon {
+                            display: block;
+                            width: 60px;
+                            height: 40px;
+                            margin: 0 auto;
+                            // border: 1px solid #000;
+                        }
+
+                        > .temp {
+                            display: block;
+                            margin-top: -15px;
+                            font-size: 14px;
+                            text-align: center;
+                        }
+
+                        > .feels {
+                            display: block;
+                            color: #f55;
+                            // font-weight: 600;
+                            font-size: 12px;
+                            text-align: center;
+                        }
+
+                        > .wind {
+                            display: block;
+                            font-size: 12px;
+                            text-align: center;
+                        }
+
+                        &.Seoul {
+                            left: 100px;
+                            top: 90px;
+                            // background-color: transparent;
+                        }
+
+                        &.GyeongGi {
+                            left: 200px;
+                            top: 80px;
+                        }
+
+                        &.GangWon {
+                            left: 350px;
+                            top: 50px;
+                        }
+
+                        &.ChungNam {
+                            left: 120px;
+                            top: 200px;
+                        }
+
+                        &.ChungBuk {
+                            left: 220px;
+                            top: 190px;
+                        }
+
+                        &.JeonNam {
+                            left: 120px;
+                            top: 410px;
+                        }
+
+                        &.JeonBuk {
+                            left: 145px;
+                            top: 305px;
+                        }
+
+                        &.GyeongNam {
+                            left: 310px;
+                            top: 370px;
+                        }
+
+                        &.GyeongBuk {
+                            left: 350px;
+                            top: 230px;
+                        }
+
+                        &.Jeju {
+                            left: 190px;
+                            top: 520px;
+                        }
+                    } //li
+                } //cities
+
+                > .tide {
+                    position: absolute;
+                    left: 10px;
+                    top: 20px;
+                    font-weight: 700;
+                    // border: 1px solid #000;
+                    > span {
+                        display: block;
+                    }
+                    > .high {
+                        color: #44f;
+                    }
+                    > .row {
+                        color: #f44;
+                    }
+                } //.tide
+            } //.weatherContainer
+
+            > .recommendContainer {
+                @include containerSetPc();
+                > p {
+                    width: 100%;
+                    // height: 70px;
+                    height: 0px;
+
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                    // font-size: 20px;
+                    font-size: 0px;
+
+                    // line-height: 70px;
+                    line-height: 0px;
+                    text-align: center;
+                    background-color: $pastelBlue;
+                    border-radius: 10px;
+                    // 1.5초마다 나타나는 트랜지션 효과->cityWeathers.js
+                    transition: all 0.5s ease-in-out;
+
+                    &:nth-child(2n) {
+                        background-color: $pastelPink;
+                    }
+
+                    &:first-child {
+                        background-color: #fff;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            } //.recommends
+        } //section.whereToGo
+
+        > section.myList {
+            @include sectionSetPC();
+            background-color: $pastelYellow;
+
+            > div.listContainer {
+                @include containerSetPc();
+
+                > .inputListForm {
+                    display: none;
+                    // display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 100%;
+                    height: 40px;
+                    margin: 5px 0;
+                    color: #eee;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    background-color: #333;
+                    border-radius: 10px;
+
+                    // animation: changeBgColor 1s cubic-bezier(0, 1.75, 0.54, -0.21);
+
+                    > label {
+                        font-size: 16px;
+                    }
+                    > input#inputList {
+                        border: none;
+                        outline: none;
+                        background: none;
+
+                        width: 50%;
+                        height: 20px;
+                        background-color: #fff;
+                    }
+                    > button {
+                        border: none;
+                        outline: none;
+                        background: none;
+                        font-size: 20px;
+                        font-weight: 600;
+                        background-color: #fff;
+                        border-radius: 5px;
+                    }
+                } //inputListForm
+
+                > p {
+                    display: block;
+                    width: 49%;
+                    height: 40px;
+                    margin: 7px 0;
+                    color: #eee;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    text-align: center;
+                    background-color: #333;
+                    border-radius: 10px;
+                    cursor: pointer;
+
+                    &:first-child {
+                        width: 100%;
+                        font-size: 20px;
+                    }
+                    &:nth-of-type(2) {
+                        width: 100%;
+                    }
+                }
+            } //.listContainer
+
+            > .infoContainer {
+                @include containerSetPc();
+
+                > p {
+                    display: block;
+                    width: 100%;
+                    height: 40px;
+                    margin: 10px 0;
+                    color: #333;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    text-align: center;
+                    background-color: #eee;
+                    border-radius: 10px;
+
+                    &.infoMenu {
+                        width: 48%;
+                        cursor: pointer;
+                    }
+                }
+
+                > .editListForm {
+                    display: none;
+                    // display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 100%;
+                    height: 40px;
+                    margin: 5px 0;
+                    color: #333;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    background-color: #eee;
+                    border-radius: 10px;
+
+                    // animation: changeBgColor 1s cubic-bezier(0, 1.75, 0.54, -0.21);
+
+                    > label {
+                        font-size: 16px;
+                    }
+                    > input#editList {
+                        border: none;
+                        outline: none;
+                        background: none;
+
+                        width: 50%;
+                        height: 20px;
+                        background-color: #fff;
+                    }
+                    > button {
+                        border: none;
+                        outline: none;
+                        background: none;
+                        font-size: 20px;
+                        font-weight: 600;
+                        background-color: #fff;
+                        border-radius: 5px;
+                    }
+                } //inputListForm
+            } //.infoContainer
+        } //section.myList
+
+        > section.community {
+            @include sectionSetPC();
+            background-color: $pastelBlue;
+
+            > .listContainer {
+                @include containerSetPc();
+
+                > .searchForm {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 50px;
+                    // background: linear-gradient(to right, red, blue);
+
+                    > label {
+                        padding: 5px;
+                        font-weight: 600;
+                    }
+
+                    > #searchInput {
+                        border: none;
+                        outline: none;
+                        flex: 1 1 0;
+
+                        height: 60%;
+                        margin: 0 10px;
+                    }
+
+                    > .searchBtn {
+                        border: none;
+                        background: none;
+                        outline: none;
+                        height: 60%;
+                        background-color: $pastelYellow;
+                        border-radius: 5px;
+                    }
+                } //.searchForm
+
+                > .selector {
+                    display: block;
+                    width: 100%;
+                    height: 40px;
+                    margin: 7px 0;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    text-align: center;
+                    background-color: $pastelYellow;
+                    border-radius: 10px;
+                    cursor: pointer;
+                } //.selector
+
+                .ratingList {
+                    display: block;
+                    width: 49%;
+                    height: 40px;
+                    margin: 7px 0;
+                    color: #eee;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    text-align: center;
+                    background-color: #333;
+                    border-radius: 10px;
+                    cursor: pointer;
+                } //myList
+            } //.listContainer
+
+            > .ratingContainer {
+                @include containerSetPc();
+
+                > span {
+                    display: block;
+                    // position: absolute;
+                    // top: -40px;
+                    // left: 20px;
+                    width: 30%;
+                    height: 30px;
+                    margin-top: 50px;
+                    margin-left: 10px;
+                    font-size: 20px;
+                    text-align: center;
+                    background-color: #fff;
+                    border-radius: 30px;
+                    box-sizing: border-box;
+                }
+
+                > p {
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    margin-top: 10px;
+                    border-radius: 20px;
+                    // border: 1px solid #000;
+                    background: linear-gradient(
+                        to right,
+
+                        #f73d3d 0%,
+                        #f73d3d 20%,
+
+                        #eeb141 20%,
+                        #eeb141 40%,
+
+                        #ebeb52 40%,
+                        #ebeb52 60%,
+
+                        #31bb31 60%,
+                        #31bb31 80%,
+
+                        #6464f1 80%,
+                        #6464f1 100%
+                    );
+
+                    >.score{
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 30px;
+                        // margin-left: 100%;
+                        background-color: #aaa;
+                        border-radius: 0;
+
+                        transition: all 0.5s ease-in-out;
+
+                        &.one{margin-left: 20%;}
+                        &.two{margin-left: 40%;}
+                        &.three{margin-left: 60%;}
+                        &.four{margin-left: 80%;}
+                        &.five{margin-left: 100%;}
+                    }
+
+                    > a {
+                        position: absolute;
+                        top: 5px;
+                        width: 50px;
+                        text-align: center;
+                        // border: 1px solid #000;
+                    }
+                } //p
+
+                > .ratingName {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 50px;
+                    margin-top: 0;
+                    background: none;
+                    background-color: #eee;
+                    border-radius: 0px;
+                } //.ratingName
+
+                >button{
+                    border: none;
+                    outline: none;
+                    background: none;
+                    width: 80%;
+                    height: 50px;
+                    margin: 20px auto 0;
+                    background-color: #ddd;
+                }
+            } //.ratingContainer
+        } //section.community
+    } //main
+
+    > footer {
+        > address {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #ddd;
+        }
+    } //footer
+} //#wrap

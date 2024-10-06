@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>계산기</title>
+    <style>
+        #resultContainer {
+            border: 1px solid black;
+            width: 380px;
+        }
+
+        #expression {
+            height: 40px;
+        }
+
+        #answer {
+            height: 40px;
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        button {
+            width: 90px;
+            height: 60px;
+        }
+
+        #zero {
+            width: 185px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="resultContainer">
+        <p id="expression"></p>
+        <p id="answer"></p>
+    </div>
+
+    <div id="calcul">
+        <button id="1" class="number">1</button>
+        <button id="2" class="number">2</button>
+        <button id="3" class="number">3</button>
+        <button id="plus" class="symbol">+</button>
+        <button id="erase">ce</button>
+        <br />
+        <button id="4" class="number">4</button>
+        <button id="5" class="number">5</button>
+        <button id="6" class="number">6</button>
+        <button id="minus" class="symbol">-</button>
+        <button id="backSpace">&lt;</button>
+        <br />
+        <button id="7" class="number">7</button>
+        <button id="8" class="number">8</button>
+        <button id="9" class="number">9</button>
+        <button id="times" class="symbol">*</button>
+        <br />
+        <button id="zero" class="number">0</button>
+        <button id="submit">=</button>
+        <button id="devide" class="symbol">/</button>
+    </div>
+
+
+    <script>
+
+        let expressionEl = document.getElementById('expression');
+        //클래스가 number인 요소 모두 선택
+        const numbers = document.querySelectorAll('.number');
+
+
+        //클릭이벤트 에 대해서 이벤트타겟의 컨텐츠를 목표 요소에 쓰는 함수
+        function addExpression(event) {
+            expressionEl.textContent += event.target.textContent;
+        }
+        //선택된 노드리스트 버튼요소에 클릭이벤트 발생시 addExpression함수 설정
+        numbers.forEach(function (button) {
+            button.addEventListener('click', addExpression);
+        });
+
+
+
+
+        //기호(symbol)버튼은 눌렀을때 기호를 입력하는 함수
+        const symbols = document.querySelectorAll('.symbol');
+
+        function addSymbols(event) {
+            expressionEl.innerHTML += event.target.innerHTML;
+
+
+            //기호가 연속으로 들어갔을때 가장 최근 누른 기호로 변환하는 함수
+            /*
+            */
+            function changeSymbols() {
+                expressionEl.textContent = expressionEl.textContent.slice(0, -2) + expressionEl.textContent.slice(-1);
+            }
+
+            let lastText = expressionEl.textContent.slice(-2, -1)
+
+            if (lastText === ('+') || lastText === ('-') || lastText === ('*') || lastText === ('/')) {
+                changeSymbols();
+            }
+        }
+
+
+        symbols.forEach(function (button) {
+            button.addEventListener('click', addSymbols);
+        });
+
+
+        //ce버튼에 클릭이벤트 발생시 expression영역 초기화
+        const eraseEl = document.getElementById('erase');
+        function eraser() {
+            expressionEl.textContent = '';
+            answerEl.textContent = '';
+        }
+        eraseEl.addEventListener('click', eraser);
+
+
+
+        //slice코드를 사용해 expression영역  마지막 텍스트를 지우는 함수
+        const backSpaceEl = document.getElementById('backSpace');
+        function backSpace() {
+            expressionEl.textContent = expressionEl.textContent.slice(0, -1);
+        }
+        backSpaceEl.addEventListener('click', backSpace);
+
+
+
+
+
+        //=(sbmit)버튼 눌렀을때 익스프레션 창에있는 수식을 계산하고 출력하는 함수
+        const submitEl = document.getElementById('submit');
+        let answerEl = document.getElementById('answer');
+        /*
+        function calcul() {
+            answerEl.textContent = eval(expressionEl.textContent);
+        }
+        */
+       
+        let expressionArr = [];
+        let numArr = [];
+        let symArr = [];
+        let j = 0;
+        let k = 0;
+        let result = 0;
+
+        //submit버튼을 눌렀을때 계산하는 함수
+        function calcul() {
+            expressionArr = expressionEl.textContent.split("");
+
+            //expression영역에 있는 문자열을 모두 분해해서 숫자와 기호를 분리해서 배열에 저장하는 함수
+            for (i = 0; i < expressionArr.length; i++) {
+                if (expressionArr[i] === '+' || expressionArr[i] === '-' || expressionArr[i] === '*' || expressionArr[i] === '/') {
+                    symArr[k] = expressionArr[i];
+                    j++;
+                    k++;
+                    continue;
+                }
+
+                //빈배열에 문자열 숫자를 넣으면 undefined발생
+                //undefined 제거 후 숫자타입으로 변경
+                numArr[j] += expressionArr[i];
+                numArr[j] = numArr[j].replace("undefined", "");
+                numArr[j] = parseInt(numArr[j]);
+            }
+
+
+            //* 또는 / 가 나오면 먼저계산
+            for (k = 0; k < symArr.length; k++) {
+                if (symArr[k] === '*') {
+                    result = numArr[k] * numArr[k + 1];
+                    numArr[k] = result;
+                    numArr[k + 1] = result;
+                }
+                if (symArr[k] === '/') {
+                    result = numArr[k] / numArr[k + 1];
+                    numArr[k] = result;
+                    numArr[k + 1] = result;
+                }
+            }
+
+            //+ 또는 -가 나오면 계산
+            for (k = 0; k < symArr.length; k++) {
+                if (symArr[k] === '+') {
+                    result = numArr[k] + numArr[k + 1];
+                    numArr[k] = result;
+                    numArr[k + 1] = result;
+                }
+                if (symArr[k] === '-') {
+                    result = numArr[k] - numArr[k + 1];
+                    numArr[k] = result;
+                    numArr[k + 1] = result;
+                }
+            }
+
+            //계산결과 출력 및 입력창 초기화
+            answerEl.textContent = expressionEl.textContent + '=' + result;
+            expressionEl.textContent = "";
+
+            console.log(expressionArr);
+            console.log(numArr);
+            console.log(symArr);
+
+            // 넘버 심볼 배열을 초기화
+            numArr = [];
+            symArr = [];
+        }
+
+        submitEl.addEventListener('click', calcul);
+
+
+
+
+
+
+
+        /*****************************************************
+        forEach구문 안에 직접 함수를 실행시켰기 때문에
+        각각의 버튼에 이벤트리스너를 추가할 수 있도록 버튼을 타겟으로 하는 이중 구조의 함수를 만듦 이벤트 리스너가 불필요하게 2번 들어갔음
+        let expressionEl = document.getElementById('expression');
+        let buttonEl = document.getElementsByTagName('button');
+        let buttons = document.querySelectorAll('button');
+
+        function addExpression(button) {
+
+            function addNumber() {
+                expressionEl.textContent += button.textContent;
+            }
+
+            button.addEventListener('click', addNumber);
+        }
+
+        buttons.forEach(addExpression);
+        ********************************************************/
+
+        /*********************************************************
+        forEach 구문 안에 직접 이벤트리스너를 추가하고
+        그 이벤트를 타겟으로 함수를 정의함
+ 
+        기존 방식은 
+ 
+        let expressionEl = document.getElementById('expression');
+        let buttons = document.querySelectorAll('button');
+ 
+        function addNumber(event) {
+            let button = event.target;
+            expressionEl.textContent += button.textContent;
+        }
+ 
+        buttons.forEach(function(button) {
+        button.addEventListener('click', addNumber);
+        });
+        *********************************************************/
+
+
+        /*********************************************************
+        ID가 submit인 버튼을 눌렀을 때 익스프레션 내용을 초기화 하는코드/ 그러나 위 forEach로 모든 버튼에 클릭이벤트를 넣었으므로 두개의 함수가 충돌하게됨 해결법을 생각해보자
+
+        let submitEl = document.getElementById('submit');
+
+        function erase() {
+            submitEl.textContent = '';
+        }
+        
+        submitEl.addEventListener('click' , erase);
+        *********************************************************/
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

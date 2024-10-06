@@ -1,0 +1,156 @@
+@charset "UTF-8";
+body {
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+#wrap {
+  width: 640px;
+  margin: 0 auto;
+  background-color: #93eee9;
+  border-radius: 20px;
+}
+@media screen and (max-width:640px) {
+  #wrap {
+    width: 100%;
+    height: 100%;
+  }
+}
+#wrap > section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+#wrap > section > .dialogContainer {
+  position: relative;
+  height: 400px;
+  margin: 10px 0;
+  padding: 0 10px;
+  background-color: #eee;
+}
+#wrap > section > .dialogContainer > .dialog {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+  width: 100%;
+  height: 400px;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+#wrap > section > .dialogContainer > .dialog::-webkit-scrollbar {
+  width: 10px; /* 세로축 스크롤바 폭 너비 */
+}
+#wrap > section > .dialogContainer > .dialog::-webkit-scrollbar-thumb {
+  background: #ddd; /* 스크롤바 색상 */
+  border-radius: 10px; /* 스크롤바 둥근 테두리 */
+}
+#wrap > section > .dialogContainer > .dialog li {
+  max-width: 70%;
+  margin-top: 8px;
+  font-weight: 500;
+}
+#wrap > section > .dialogContainer > .dialog li > span {
+  display: inline-block;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+#wrap > section > .dialogContainer > .dialog .response {
+  position: relative;
+  max-width: 60%;
+  margin-left: 55px;
+}
+#wrap > section > .dialogContainer > .dialog .response:before {
+  display: block;
+  position: absolute;
+  left: -45px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  content: "";
+}
+#wrap > section > .dialogContainer > .friend {
+  display: none;
+}
+#wrap > section > .dialogContainer > .friend .response:before {
+  background-image: url(./../images/rabbit.jpg);
+}
+#wrap > section > .dialogContainer > .expert {
+  display: block;
+}
+#wrap > section > .dialogContainer > .expert .response:before {
+  background-image: url(./../images/GPT.jpg);
+}
+#wrap > section > .dialogContainer > .translator {
+  display: none;
+}
+#wrap > section > .dialogContainer > .translator .response:before {
+  background-image: url(./../images/bird.png);
+}
+#wrap > section > form {
+  padding: 10px 0;
+}
+#wrap > section > form > fieldset {
+  display: flex;
+  justify-content: space-between;
+}
+#wrap > section > form > fieldset > input {
+  flex: 1 1 0;
+  padding: 8px 5px;
+  outline: 1px solid #dedede;
+}
+#wrap > section > form > fieldset > button {
+  background: none;
+  border: none;
+  outline: none;
+}
+#wrap > section > form > fieldset > button > i {
+  margin-left: 10px;
+  padding: 7px;
+  color: #aaa;
+  font-size: 24px;
+  background-color: #ff0;
+  border-radius: 20%;
+}
+#wrap > section > form > fieldset > button > span {
+  position: absolute;
+  left: -9999px;
+}
+#wrap > section > .charContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+#wrap > section > .charContainer > p {
+  width: 30%;
+  height: auto;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #ddee93;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#wrap > section > .charContainer > p.on {
+  box-shadow: 0 0 15px #222;
+}
+#wrap > section > p.buttons {
+  margin: 20px 0;
+  text-align: center;
+}
+#wrap > section > p.buttons > button {
+  padding: 5px 10px;
+  border: 1px solid #dedede;
+}
+#wrap > footer > address {
+  padding: 10px 0;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,197 @@
+@charset "UTF-8";
+body {
+  background-color: #eee;
+}
+
+#wrap {
+  width: 500px;
+  margin: 0 auto;
+}
+
+section > form > fieldset {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+section > form > fieldset > legend {
+  margin-left: 10px;
+  padding: 0 5px;
+}
+section > form > fieldset > ul > li {
+  padding: 10px;
+  line-height: 25px;
+  border-bottom: 1px solid #dedede;
+}
+section > form > fieldset > ul > li > .info {
+  display: none;
+  color: red;
+  font-size: 12px;
+  text-indent: 6px;
+}
+section > form > fieldset > ul > li > .tit {
+  display: inline-block;
+  width: 80px;
+  padding-left: 6px;
+  line-height: 36px;
+}
+section > form > fieldset > ul > li > .tit-question {
+  display: inline-block;
+  width: 180px;
+  padding-left: 6px;
+  color: #ccc;
+  line-height: 36px;
+}
+section > form > fieldset > ul > li > .tit-sms {
+  display: inline-block;
+  width: 280px;
+  padding-left: 6px;
+  line-height: 36px;
+}
+section > form > fieldset > ul > li > select {
+  width: 250px;
+  height: 25px;
+  margin-right: 3px;
+  padding-left: 10px;
+  background-image: url("./../images/select_arr.png");
+  background-position: 230px center;
+  background-repeat: no-repeat;
+  border: 1px solid #dedede;
+  outline: none;
+  /* select의 기본 스타일 제거(아래로향하는 화살표) */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+section > form > fieldset > ul > li > .phone {
+  width: 60px;
+  background-position: 40px center;
+}
+section > form > fieldset > ul > li > .phone::-moz-placeholder {
+  text-align: center;
+}
+section > form > fieldset > ul > li > .phone::placeholder {
+  text-align: center;
+}
+section > form > fieldset > ul > li .domain {
+  width: 100px;
+  background-position: 80px center;
+}
+section > form > fieldset > ul > li > #username {
+  width: 300px;
+}
+section > form > fieldset > ul > li > .radio {
+  margin-left: 20px;
+}
+section > form > fieldset > ul > li > .radio > input {
+  display: none;
+}
+section > form > fieldset > ul > li > .radio > label {
+  position: relative;
+  padding-left: 30px;
+}
+section > form > fieldset > ul > li > .radio > input:checked + label:before {
+  background-position: 0 0;
+}
+section > form > fieldset > ul > li > .radio > label:before {
+  position: absolute;
+  left: 0;
+  top: -2px;
+  display: block;
+  width: 23px;
+  height: 23px;
+  background-image: url("./../images/icon_radiobutton.png");
+  background-position: 0 23px;
+  content: "";
+}
+section > form > fieldset > ul > li > .tit-email {
+  display: inline-block;
+  width: 120px;
+  padding-left: 6px;
+  line-height: 35px;
+}
+section > form > fieldset > ul > li .switch > input {
+  display: none;
+}
+section > form > fieldset > ul > li .switch > input:checked + label {
+  background-color: #22c33a;
+}
+section > form > fieldset > ul > li .switch > label {
+  display: inline-block;
+  position: relative;
+  width: 48px;
+  height: 25px;
+  text-indent: -9999px;
+  background-color: #dedede;
+  /* border: 1px solid #000; */
+  border-radius: 30px;
+}
+section > form > fieldset > ul > li .switch > input:checked + label:after {
+  left: 24px;
+}
+section > form > fieldset > ul > li > .switch > label:after {
+  display: block;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 23px;
+  height: 23px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.1s;
+  content: "";
+}
+section > form > fieldset > ul > li .tit-email {
+  width: 400px;
+}
+section > form > fieldset > ul > li:last-child {
+  border: none;
+}
+section > form input[type=email]::-moz-placeholder, section > form input[type=password]::-moz-placeholder, section > form input[type=text]::-moz-placeholder {
+  color: #ccc;
+}
+section > form input[type=email]::placeholder,
+section > form input[type=password]::placeholder,
+section > form input[type=text]::placeholder {
+  color: #ccc;
+}
+section > form input[type=password]:focus + .info,
+section > form input[type=text]:focus + .info,
+section > form input[type=email]:focus ~ .info,
+section > form select:focus + .info {
+  display: block;
+}
+section > form input[type=email]:focus,
+section > form input[type=password]:focus,
+section > form input[type=text]:focus {
+  background-color: lightgoldenrodyellow;
+}
+section > form input[type=email],
+section > form input[type=password],
+section > form input[type=text] {
+  width: 466px;
+  padding: 5px 6px;
+  border: none;
+  outline: none;
+}
+section > form input[type=email] {
+  width: 130px;
+}
+section > form > p {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+section > form > p > button {
+  background: none;
+  border: none;
+  outline: none;
+  display: block;
+  width: 246px;
+  height: 60px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #999;
+}
+section > form > p > button[type=submit] {
+  background-color: #22c33a;
+}/*# sourceMappingURL=style.css.map */

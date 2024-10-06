@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#wrap {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
+/* 호라이즌 컨테이너 */
+.hrzcontainer {
+    display: flex;
+    width: 700px;
+    height: 100px;
+    margin-left: 100px;
+}
+
+/* 호라이즌 화살표영역 */
+.hrzcontainer>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    font-size: 40px;
+    font-weight: 800;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+
+
+/* 호라이즌 셀렉터영역 */
+.hrzcontainer>ul {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.hrzcontainer>ul>li>a {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.hrzcontainer>ul>li.onblue>a:after,
+.hrzcontainer>ul>li>a:hover:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border: 3px solid blue;
+    box-sizing: border-box;
+    content: '';
+}
+
+/* 버티컬 컨테이너 */
+.vtccontainer {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100px;
+    height: 700px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+/* 버티컬 업다운 영역 */
+.vtccontainer>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    font-size: 40px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+/* 버티컬 셀렉터영역 */
+
+.vtccontainer>ul {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.vtccontainer>ul>li>a {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.vtccontainer>ul>li.onred>a:after,
+.vtccontainer>ul>li>a:hover:after{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border: 3px solid red;
+    box-sizing: border-box;
+    content: '';
+}
+
+/* 셀렉티드영역 */
+.stdcontainer {
+    display: flex;
+    flex-flow: row wrap;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 600px;
+    height: 600px;
+    border: 1px solid #000;
+}
+
+.stdcontainer>li {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}

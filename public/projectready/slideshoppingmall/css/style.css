@@ -1,0 +1,112 @@
+@charset "UTF-8";
+h1 {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.slides {
+  overflow: hidden;
+  position: relative;
+  width: 1120px;
+  height: 450px;
+  margin: 0 auto;
+  border: 1px solid #000;
+}
+.slides > .slides-container {
+  display: flex;
+  position: absolute;
+  left: 0;
+  /*
+  공식 : -1120px * nowIdx
+  // left: -1120px*0;
+  // left: -1120px*1;
+  // left: -1120px*2;
+  // left: -1120px*3;
+  // left: -1120px*4;
+  */
+  top: 0;
+  width: 5600px;
+  transition: all 0.4s ease-in-out;
+}
+.slides > .slides-container > p {
+  width: 1120px;
+  background-position: center center;
+  background-size: cover;
+}
+.slides > .slides-container > p:nth-child(1) {
+  background-image: url(./../images/slide-1.jpg);
+}
+.slides > .slides-container > p:nth-child(2) {
+  background-image: url(./../images/slide-2.jpg);
+}
+.slides > .slides-container > p:nth-child(3) {
+  background-image: url(./../images/slide-3.jpg);
+}
+.slides > .slides-container > p:nth-child(4) {
+  background-image: url(./../images/slide-4.jpg);
+}
+.slides > .slides-container > p:nth-child(5) {
+  background-image: url(./../images/slide-5.jpg);
+}
+.slides > .slides-container > p > a {
+  display: block;
+  height: 450px;
+  text-indent: -9999px;
+}
+.slides > .slides-pagination {
+  position: absolute;
+  right: 90px;
+  transform: translate(0, 25%);
+}
+.slides > .slides-pagination > li {
+  width: 180px;
+}
+.slides > .slides-pagination > li:nth-child(1) {
+  background-image: url(./../images/indicator-1.jpg);
+}
+.slides > .slides-pagination > li:nth-child(2) {
+  background-image: url(./../images/indicator-2.jpg);
+}
+.slides > .slides-pagination > li:nth-child(3) {
+  background-image: url(./../images/indicator-3.jpg);
+}
+.slides > .slides-pagination > li:nth-child(4) {
+  background-image: url(./../images/indicator-4.jpg);
+}
+.slides > .slides-pagination > li:nth-child(5) {
+  background-image: url(./../images/indicator-5.jpg);
+}
+.slides > .slides-pagination > li.on > a, .slides > .slides-pagination > li:hover > a {
+  border: 2px solid skyblue;
+  box-sizing: border-box;
+}
+.slides > .slides-pagination > li > a {
+  display: block;
+  height: 60px;
+  text-indent: -9999px;
+}
+.slides > .slides-navigation {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 100px;
+  margin-top: -50px;
+  text-indent: -9999px;
+  background-image: url(./../images/btn_navigation.png);
+}
+.slides > .slides-navigation.slides-prev {
+  left: 0;
+  background-position: -5px -225px;
+}
+.slides > .slides-navigation.slides-prev:hover {
+  background-position: -5px -335px;
+}
+.slides > .slides-navigation.slides-next {
+  right: 0;
+  background-position: -5px -5px;
+}
+.slides > .slides-navigation.slides-next:hover {
+  background-position: -5px -115px;
+}/*# sourceMappingURL=style.css.map */
